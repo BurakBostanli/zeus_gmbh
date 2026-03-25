@@ -1,0 +1,184 @@
+section {
+  padding: 20px;
+      background-color: rgba(0, 0, 0, 0.065);
+}
+
+.formWrapper {
+  @media (min-width: 1024px) {
+    gap: 20px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+
+  @media (min-width: 1024px) {
+    width: 50%;
+    height: 568px;
+    padding: 0em 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .infoContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+
+    img {
+      width: 46px;
+      height: 46px;
+    }
+  }
+}
+
+form {
+  @media (min-width: 1024px) {
+    width: 40%;
+  }
+}
+
+.contactSection {
+  color: #fff;
+
+  .headlineArea {
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5em;
+
+    h2 {
+      margin: 0 0 4px;
+    }
+
+    p {
+      opacity: .8;
+      margin: 0;
+    }
+  }
+
+  .hp-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .formGrid {
+    padding-top: 20px;
+
+    @media (min-width: 1024px) {
+      box-shadow: unset;
+      background-color: unset;
+      margin: 0em;
+      padding: 0em;
+    }
+
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 1fr;
+  }
+
+  .inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 5px;
+
+    input,
+    select,
+    textarea {
+      resize: none;
+      font-size: 16px;
+      width: 100%;
+      padding: 12px 14px;
+      border: rgba(229, 229, 231, 0.182) solid 1px;
+      background: #1A1A1D;
+      color: #ffffff;
+      outline: none;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      opacity: 1;
+    }
+
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  .inputGroup.full {
+    grid-column: 1 / -1;
+  }
+
+  .consent-container {
+    padding-top: 10px;
+
+    @media (min-width: 1024px) {
+      padding: unset;
+      display: flex;
+      justify-content: start;
+      align-items: start;
+      flex-direction: column;
+    }
+  }
+
+  .consentRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0 16px;
+
+    input {
+      margin-top: 2px;
+    }
+
+    label{
+      font-size: 14px;
+    }
+  }
+
+  .formNote {
+    font-size: 14px;
+    opacity: .6;
+    margin-top: 8px;
+  }
+}
+
+.inputContainer {
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: start;
+}
+
+select {
+    cursor: pointer;
+
+  color: rgba(229, 229, 231, 0.8392156863);
+}
+
+option {
+  color: white;
+}
+
+button{
+  color: white;
+  background-color: black;
+}

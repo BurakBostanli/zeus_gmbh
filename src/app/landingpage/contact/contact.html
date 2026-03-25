@@ -1,0 +1,91 @@
+<section id="contact" class="contactSection">
+  <div class="headline-area">
+    <h2>Projekt <span>Starten</span></h2>
+    <p>Lassen Sie uns über Ihr Projekt sprechen. Wir freuen uns auf Ihre Anfrage</p>
+  </div>
+
+  <div class="formWrapper">
+
+    <form class="contactForm" novalidate (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" appFadeInOnScroll appFadeInOnScroll fadeClass="fade-in-y"
+        fadeVisibleClass="fade-in-y-visible">
+      <div class="hp-field">
+        <label for="company">Firma</label>
+        <input id="company" name="company" type="text" autocomplete="off" tabindex="-1" [(ngModel)]="formData.company"
+          (input)="onInputChange()">
+      </div>
+
+      <div class="formGrid">
+        <div class="inputGroup">
+          <label for="name">Name*</label>
+          <input id="name" name="name" type="text" required placeholder="Max Mustermann" [(ngModel)]="formData.name"
+            (input)="onInputChange()">
+        </div>
+
+        <div class="inputGroup">
+          <label for="email">E-Mail*</label>
+          <input id="email" name="email" type="email" required placeholder="mail@beispiel.de"
+            [(ngModel)]="formData.email" (input)="onInputChange()">
+        </div>
+
+        <div class="inputGroup">
+          <label for="phone">Telefon*</label>
+          <input id="phone" name="phone" required type="tel" placeholder="+49 …" [(ngModel)]="formData.phone"
+            (input)="onInputChange()">
+        </div>
+
+        <div class="inputGroup">
+          <label for="package">Fahrzeug</label>
+          <select id="package" name="package" [(ngModel)]="formData.package" (change)="onInputChange()">
+                        <option value="">Bitte auswählen</option>
+
+            @for (item of cars; track $index) {
+            <option>{{item.name}}</option>
+            }
+
+
+          </select>
+        </div>
+
+        <div class="inputGroup full">
+          <label for="message">Nachricht*</label>
+          <textarea id="message" name="message" rows="6" required placeholder="Worum geht's genau?"
+            [(ngModel)]="formData.message" (input)="onInputChange()"></textarea>
+        </div>
+      </div>
+      <div class="consent-container">
+        <div class="consentRow">
+          <input id="consent" name="consent" type="checkbox" required [(ngModel)]="formData.consent"
+            (change)="onInputChange()">
+          <label for="consent">Ich stimme der <a [routerLink]="'/privacypolicy'">Datenschutzerklärung</a> zu.*</label>
+        </div>
+
+        <div *ngIf="submitSuccess" class="success-message">
+          Vielen Dank! Deine Nachricht wurde gesendet.
+        </div>
+
+        <div *ngIf="submitError" class="error-message">
+          Es gab einen Fehler. Bitte versuche es später erneut.
+        </div>
+
+        <button class="btnPrimary" type="submit"
+          [disabled]="!contactForm.form.valid || isSubmitting || !formData.consent">
+          {{ isSubmitting ? 'Wird gesendet...' : 'Nachricht Senden' }}
+        </button>
+        <p class="formNote">*Pflichtfelder</p>
+      </div>
+    </form>
+    <div class="contactInfo" appFadeInOnScroll>
+      @for (contactInput of contactInput; track $index) {
+      <div class="infoContainer">
+        <img [src]="contactInput.imgPath">
+        <div class="inputContainer">
+          <span>{{contactInput.title}}</span>
+          <p>{{contactInput.description}}</p>
+        </div>
+      </div>
+      }
+
+    </div>
+  </div>
+
+</section>

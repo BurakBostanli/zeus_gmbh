@@ -16,27 +16,35 @@
 
             <div class="vehicle-specs">
                 @for (spec of item.performance; track $index) {
-                    <div class="spec-item">
-                        <img [src]="spec.icon" [alt]="spec.label" class="spec-icon" />
-                        <div class="spec-details">
-                            <h4>{{ spec.label }}</h4>
-                            <p>{{ spec.value }} {{ spec.unit }}</p>
-                        </div>
+                <div class="spec-item">
+                    <img [src]="spec.icon" [alt]="spec.label" class="spec-icon" />
+                    <div class="spec-details">
+                        <h4>{{ spec.label }}</h4>
+                        @if (spec.key === 'horsepower') {
+                        <p>
+                            <span [attr.data-spec-key]="spec.key" [attr.data-car-id]="item.id"
+                                [attr.data-target-value]="spec.value" class="counter-value">0</span>
+                            {{ spec.unit }}
+                        </p>
+                        } @else {
+                        <p>{{ spec.value }} {{ spec.unit }}</p>
+                        }
                     </div>
+                </div>
                 }
             </div>
 
             <div class="hyphen"></div>
-                <h4>Highlights</h4>
+            <h4>Highlights</h4>
 
             <div class="vehicle-highlights">
-                    @for (highlight of item.highlights; track $index) {
-                        <div class="tags">{{ highlight }}</div>
-                    }
+                @for (highlight of item.highlights; track $index) {
+                <div class="tags">{{ highlight }}</div>
+                }
             </div>
 
             <div class="btn-container">
-                <button>Jetzt Anfragen</button>
+                <a href="#contact">Jetzt Anfragen</a>
             </div>
 
         </div>

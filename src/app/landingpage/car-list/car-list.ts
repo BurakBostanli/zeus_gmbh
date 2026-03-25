@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { Car } from '../../shared/interface/interface';
+import { CarFeatures } from '../../services/car-features';
 
 @Component({
   selector: 'app-car-list',
@@ -7,95 +8,71 @@ import { Car } from '../../shared/interface/interface';
   templateUrl: './car-list.html',
   styleUrl: './car-list.scss',
 })
-export class CarList {
-
+export class CarList implements AfterViewInit, OnDestroy {
   currentIndex: number = 0;
+  cars: Car[] = [];
+  
+  private observer: IntersectionObserver | null = null;
+  private animatedItems = new Set<string>();
 
-  cars: Car[] = [
-    {
-      id: 1,
-      category: 'Supersportwagen',
-      name: 'Ferrari 488 Pista',
-      description:
-        'Der Ferrari 488 Pista ist ein exklusiver Supersportwagen mit beeindruckender Leistung.',
-      images: [
-        '/assets/cars/488_pista/ferrari_488_pista_1.jpg',
-        '/assets/cars/488_pista/ferrari_488_pista_2.jpg',
-        '/assets/cars/488_pista/ferrari_488_pista_3.jpg'
-      ],
-      performance: [
-        {
-          key: 'horsepower',
-          value: 720,
-          label: 'Leistung',
-          unit: 'PS',
-          icon: '/assets/cars/icons/horsepower.png'
-        },
-        {
-          key: 'acceleration',
-          value: '2,9 Sekunden',
-          label: 'Beschleunigung',
-          icon: '/assets/cars/icons/speed.png'
-        },
-        {
-          key: 'capacity',
-          value: '2 Personen',
-          label: 'Kapazität',
-          icon: '/assets/cars/icons/persons.png'
-        },
-        {
-          key: 'transmission',
-          value: 'Automatik',
-          label: 'Getriebe',
-          icon: '/assets/cars/icons/gear.png'
-        }
-      ],
-      highlights: [
-        'Leistungsstark',
-        'Rennsporttauglich',
-        'Luxusausstattung'
-      ]
-    },
-    {
-      id: 3,
-      category: 'SUV / Geländewagen',
-      name: 'Mercedes-AMG G63',
-      description:
-        'Der Mercedes-AMG G63 kombiniert Luxus, Kraft und Offroad-Performance in einer ikonischen G-Klasse.',
-      images: [
-        '/assets/cars/g63/mercedes_amg_g63_1.jpg.jpg'
-      ],
-      performance: [
-        {
-          key: 'horsepower',
-          value: 585,
-          label: 'Leistung',
-          unit: 'PS',
-          icon: '/assets/cars/icons/horsepower.png'
-        },
-        {
-          key: 'acceleration',
-          value: '4,5 Sekunden',
-          label: 'Beschleunigung',
-          icon: '/assets/cars/icons/speed.png'
-        },
-        {
-          key: 'capacity',
-          value: '5 Personen',
-          label: 'Kapazität',
-          icon: '/assets/cars/icons/persons.png'
-        },
-        {
-          key: 'transmission',
-          value: 'Automatik',
-          label: 'Getriebe',
-          icon: '/assets/cars/icons/gear.png'
-        }
-      ],
-      highlights: [
-        'Offroad-Performance',
-        'Luxusinterieur',
-        'Ikonisches Design'
-      ]
-    }];
+  constructor(private carFeatures: CarFeatures) {
+    this.cars = this.carFeatures.cars;
+  }
+
+  ngAfterViewInit() {
+    this.initIntersectionObserver();
+  }
+
+  ngOnDestroy() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+  }
+
+  private initIntersectionObserver() {
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const element = entry.target as HTMLElement;
+            const carId = element.dataset['carId'];
+            const specKey = element.dataset['specKey'];
+            const identifier = `${carId}-${specKey}`;
+            
+            if (!this.animatedItems.has(identifier) && specKey === 'horsepower') {
+              this.animatedItems.add(identifier);
+              this.animateNumber(element);
+            }
+          }
+        });
+      },
+      { threshold: 1 }
+    );
+
+    setTimeout(() => {
+      document.querySelectorAll('[data-spec-key="horsepower"]').forEach((el) => {
+        this.observer?.observe(el);
+      });
+    });
+  }
+
+  private animateNumber(element: HTMLElement) {
+    const targetValue = parseInt(element.getAttribute('data-target-value') || '0', 10);
+    const duration = 2000;
+    const stepTime = 25;
+    let current = 0;
+    const steps = duration / stepTime;
+    const increment = targetValue / steps;
+    
+    const interval = setInterval(() => {
+      current += increment;
+      if (current >= targetValue) {
+        current = targetValue;
+        element.textContent = Math.floor(current).toString();
+        clearInterval(interval);
+      } else {
+        element.textContent = Math.floor(current).toString();
+      }
+    }, stepTime);
+  }
 }

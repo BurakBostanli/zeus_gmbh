@@ -21,3 +21,9 @@ export interface InsuranceFeature {
   description: string;
   iconUrl: string;
 }
+
+export interface ContactInfo {
+  imgPath: string;
+  title: string;
+  description: string[];
+}
