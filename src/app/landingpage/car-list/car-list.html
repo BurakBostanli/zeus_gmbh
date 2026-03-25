@@ -1,0 +1,42 @@
+<section>
+    <h2>Unsere Flotte</h2>
+    <p>Exklusive Supersportwagen und Luxusfahrzeuge für außergewöhnliche Momente</p>
+
+    <div class="vehicle-grid">
+        @for (item of cars; track $index) {
+        <div class="vehicle-card">
+            <div class="vehicle-image">
+                <img [src]="item.images[currentIndex]" [alt]="item.name" class="vehicle-image" />
+            </div>
+            <div class="vehicle-info">
+                <h4>{{ item.category }}</h4>
+                <h3>{{ item.name }}</h3>
+                <p>{{ item.description }}</p>
+            </div>
+
+            <div class="vehicle-specs">
+                @for (spec of item.performance; track $index) {
+                    <div class="spec-item">
+                        <img [src]="spec.icon" [alt]="spec.label" class="spec-icon" />
+                        <div class="spec-details">
+                            <h4>{{ spec.label }}</h4>
+                            <p>{{ spec.value }} {{ spec.unit }}</p>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="hyphen"></div>
+                <h4>Highlights</h4>
+
+            <div class="vehicle-highlights">
+                    @for (highlight of item.highlights; track $index) {
+                        <div class="tags">{{ highlight }}</div>
+                    }
+            </div>
+
+        </div>
+        }
+
+    </div>
+</section>
