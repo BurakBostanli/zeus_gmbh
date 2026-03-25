@@ -104,7 +104,7 @@ form {
       width: 100%;
       padding: 12px 14px;
       border: rgba(229, 229, 231, 0.182) solid 1px;
-      background: #1A1A1D;
+      background: #000000;
       color: #ffffff;
       outline: none;
     }
@@ -179,6 +179,8 @@ option {
 }
 
 button{
+  font-size: 16px;
+  font-weight: 200;
   color: white;
   background-color: black;
 }
