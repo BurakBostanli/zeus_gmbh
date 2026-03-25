@@ -15,3 +15,9 @@ export interface Car {
 
   highlights: string[];
 }
+
+export interface InsuranceFeature {
+  title: string;
+  description: string;
+  iconUrl: string;
+}

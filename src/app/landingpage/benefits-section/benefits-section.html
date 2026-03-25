@@ -1,0 +1,14 @@
+<section>
+    <h2>Ihre Vorteile</h2>
+    <p>Mehr als nur eine Autovermietung – Ihr Partner für exklusive Mobilität</p>
+
+    <div class="insurance-card-wrapper">
+        @for (item of insurance; track $index) {
+        <div class="insurance-card">
+            <img [src]="item.iconUrl" alt="benefits-icon">
+            <h3>{{item.title}}</h3>
+            <span>{{item.description}}</span>
+        </div>
+        <div class="hyphen"></div> }
+    </div>
+</section>

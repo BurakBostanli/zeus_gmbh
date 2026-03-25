@@ -1,0 +1,47 @@
+section {
+    padding: 40px;
+
+    h2 {
+        color: white;
+        padding-bottom: 20px;
+    }
+
+    p,
+    h3,
+    span {
+        color: white;
+    }
+
+    span{
+        font-weight: 100;
+    }
+
+    .insurance-card {
+        margin-top: 30px;
+
+        img {
+            border: solid 2px rgba(255, 255, 255, 0.235);
+            height: 50px;
+            width: 50px;
+            border-radius: 50px;
+            padding: 7px;
+        }
+
+    }
+
+    .hyphen {
+        margin-top: 20px;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(to right,
+                white 0%,
+                rgba(255, 255, 255, 0) 100%);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 1.1s ease-out;
+    }
+
+    .hyphen.active {
+        transform: scaleX(1);
+    }
+}
