@@ -3,9 +3,13 @@ section {
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  padding: 20px;
+  padding: 60px 20px;
 
   h2 {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
     padding-bottom: 20px;
   }
 
@@ -21,7 +25,10 @@ section {
       padding: 0px 20px;
       width: 100%;
 
-      a {
+      a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-weight: 200;
         padding: 8px;
         width: 100%;
@@ -37,9 +44,13 @@ section {
     flex-direction: column;
 
     .vehicle-image {
+      width: 100%;
+
       img {
+        object-fit: cover;
+        object-position: left;
         width: 100%;
-        height: auto;
+        height: 400px;
       }
     }
 
@@ -72,6 +83,7 @@ section {
       width: 100%;
 
       .spec-item {
+        align-items: center;
         flex-wrap: wrap;
         display: flex;
         font-size: 0.9rem;
@@ -115,4 +127,15 @@ section {
   height: 1px;
   background-color: #cbcbcb;
   margin-bottom: 20px;
+}
+
+.price-tag{
+          display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 200;
+        padding: 8px;
+        width: 100%;
+        background-color: black;
+        color: white;
 }

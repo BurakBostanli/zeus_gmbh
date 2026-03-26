@@ -1,6 +1,9 @@
 app-benefits-section{
     display: flex;
-    background-color: black;
+    background: linear-gradient(to bottom, rgb(0, 0, 0) 1%, rgba(0, 0, 0, 0.739) 50%), url('/assets/backgrounds/background_2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 app-footer{

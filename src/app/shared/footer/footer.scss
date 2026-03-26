@@ -1,5 +1,5 @@
 footer {
-    padding: 20px;
+    padding: 60px 20px;
     justify-content: center;
     display: flex;
     flex-direction: column;
@@ -13,23 +13,31 @@ footer {
     }
 
     .hyphen {
-        margin: 20px 0px;
+        margin: 35px 0px;
         width: 100%;
         background-color: rgb(255, 255, 255);
-        height: 1px;
+        opacity: 0.2;
+        height: 0.6px;
     }
 
     h2 {
+        margin-bottom: 8px;
         color: white;
         font-weight: 400;
     }
 
     p {
-        color: white;
+        color: #a4a4a4;
         font-weight: 200;
     }
 
     a{
-        color: white;
+                font-size: 14px;
+font-weight: 200;
+        color: #a4a4a4;
+    }
+
+    .copyright{
+        font-size: 14px;
     }
 }

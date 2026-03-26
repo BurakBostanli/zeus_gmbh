@@ -6,7 +6,8 @@
         @for (item of cars; track $index) {
         <div class="vehicle-card">
             <div class="vehicle-image">
-                <img [src]="item.images[currentIndex]" [alt]="item.name" class="vehicle-image" />
+                <div class="price-tag">ab {{item.id}} €</div>
+                <img [src]="item.images[currentIndex]" [alt]="item.name" />
             </div>
             <div class="vehicle-info">
                 <h4>{{ item.category }}</h4>

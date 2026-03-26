@@ -9,30 +9,35 @@ import { CarFeatures } from '../../services/car-features';
 
 @Component({
   selector: 'app-contact',
-  imports: [CommonModule, FormsModule, RouterLink, ],
+  imports: [CommonModule, FormsModule, RouterLink,],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
 export class Contact {
 
-    cars: Car[] = [];
+  cars: Car[] = [];
 
 
   contactInput: ContactInfo[] = [
     {
       imgPath: 'assets/icons/mailDefault.png',
       title: 'E-Mail',
-      description: ['info@bostech-solutions.de'],
+      description: ['info@auto-zeus.de'],
     },
     {
       imgPath: 'assets/icons/phoneDefault.png',
       title: 'Telefon',
-      description: ['+49 (0) 172 54583495'],
+      description: ['+49 (0) 1512 8461836'],
+    },
+    {
+      imgPath: 'assets/icons/whatsappDefault.png',
+      title: 'WhatsApp',
+      description: ['Hier klicken'],
     },
     {
       imgPath: '/assets/icons/locationDefault.png',
       title: 'Standort',
-      description: ['Deutschland', 'Remote & vor Ort'],
+      description: ['Ingolstadt'],
     },
   ];
 
@@ -73,7 +78,7 @@ export class Contact {
     private carFeatures: CarFeatures
   ) {
     this.loadFormData();
-    this.cars =  this.carFeatures.cars
+    this.cars = this.carFeatures.cars
   }
 
   ngOnInit() {
@@ -176,5 +181,12 @@ export class Contact {
     } else {
       this.submitError = true;
     }
+  }
+
+  executeAction(title: string, value: string) {
+    if (title === 'E-Mail') window.location.href = `mailto:${value}`;
+    if (title === 'Telefon') window.location.href = `tel:${value}`;
+    if (title === 'WhatsApp') window.open(`https://wa.me/${value.replace(/\D/g, '')}`, '_blank');
+    if (title === 'Standort') window.open(`https://maps.google.com/?q=${value}`, '_blank');
   }
 }
