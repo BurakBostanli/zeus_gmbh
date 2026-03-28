@@ -18,7 +18,7 @@ section {
         gap: 20px;
 
         a {
-            padding: 8px;
+            padding: 8px 14px;
             width: 100%;
             background-color: rgb(255, 255, 255);
             color: rgb(0, 0, 0);
@@ -44,16 +44,25 @@ h4 {
 @keyframes arrowFade {
     0% {
         opacity: 0;
+        border-color: white;
         transform: translateY(-10px) rotate(-45deg);
     }
 
-    50% {
+    33% {
         opacity: 1;
+        border-color: #002A6B;
         transform: translateY(0) rotate(-45deg);
+    }
+
+    66% {
+        opacity: 1;
+        border-color: #C59C13;
+        transform: translateY(5px) rotate(-45deg);
     }
 
     100% {
         opacity: 0;
+        border-color: white;
         transform: translateY(10px) rotate(-45deg);
     }
 }

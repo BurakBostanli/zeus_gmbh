@@ -15,7 +15,7 @@ export class CarList implements AfterViewInit, OnDestroy {
   private observer: IntersectionObserver | null = null;
   private animatedItems = new Set<string>();
 
-  constructor(private carFeatures: CarFeatures) {
+  constructor(public carFeatures: CarFeatures) {
     this.cars = this.carFeatures.cars;
   }
 

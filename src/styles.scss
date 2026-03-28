@@ -9,9 +9,12 @@
   box-sizing: border-box;
 }
 
-
 body {
   background: #ffffff;
+}
+
+.no-scroll {
+  overflow: hidden;
 }
 
 a {

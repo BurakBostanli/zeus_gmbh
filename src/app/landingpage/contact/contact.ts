@@ -83,7 +83,7 @@ export class Contact {
 
   ngOnInit() {
     this.titleService.setTitle(
-      'Zeus Auto - Premium Rental | Südbayern',
+      ' Zeus GmbH - Sportwagenvermietung - Premium Rental | Südbayern',
     );
     this.metaService.updateTag({
       name: 'description',

@@ -3,11 +3,27 @@
     <p>Exklusive Supersportwagen und Luxusfahrzeuge für außergewöhnliche Momente</p>
 
     <div class="vehicle-grid">
-        @for (item of cars; track $index) {
+        @for (item of cars; track $index; let i = $index) {
         <div class="vehicle-card">
             <div class="vehicle-image">
                 <div class="price-tag">ab {{item.id}} €</div>
-                <img [src]="item.images[currentIndex]" [alt]="item.name" />
+                <img [src]="item.images[carFeatures.currentIndexes[i] || 0]" [alt]="item.name"
+                    (click)="carFeatures.openImage(item.images[carFeatures.currentIndexes[i] || 0], i, carFeatures.currentIndexes[i] || 0)" />
+
+                @if (carFeatures.selectedImage) {
+                <div class="image-modal" (click)="carFeatures.closeImage()"
+                    (touchstart)="carFeatures.onTouchStart($event)" (touchend)="carFeatures.onTouchEnd($event)">
+                    <div class="swipe-hint">← →</div>
+
+                    <img [src]="carFeatures.selectedImage" (click)="$event.stopPropagation()" />
+                </div>
+                }
+
+                <div class="btn-container">
+                    <button (click)="carFeatures.prevImage(i)">&lt;</button>
+                    <button (click)="carFeatures.nextImage(i)">&gt;</button>
+                </div>
+
             </div>
             <div class="vehicle-info">
                 <h4>{{ item.category }}</h4>
