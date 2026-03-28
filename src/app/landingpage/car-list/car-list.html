@@ -5,32 +5,25 @@
     <div class="vehicle-grid">
         @for (item of cars; track $index; let i = $index) {
         <div class="vehicle-card">
-            <div class="vehicle-image">
+            <div class="vehicle-image" (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event, i)"
+                (touchend)="onTouchEnd($event, i)">
                 <div class="price-tag">ab {{item.id}} €</div>
-                <img [src]="item.images[carFeatures.currentIndexes[i] || 0]" [alt]="item.name"
-                    (click)="carFeatures.openImage(item.images[carFeatures.currentIndexes[i] || 0], i, carFeatures.currentIndexes[i] || 0)" />
-
-                @if (carFeatures.selectedImage) {
-                <div class="image-modal" (click)="carFeatures.closeImage()"
-                    (touchstart)="carFeatures.onTouchStart($event)" (touchend)="carFeatures.onTouchEnd($event)">
-                    <div class="swipe-hint">← →</div>
-
-                    <img [src]="carFeatures.selectedImage" (click)="$event.stopPropagation()" />
+                <div class="slider-track"
+                    [style.transform]="'translateX(calc(-' + (carFeatures.currentIndexes[i] || 0) + ' * 100% + ' + (dragOffsets[i] || 0) + 'px))'"
+                    [style.transition]="isDragging ? 'none' : 'transform 0.3s ease'">
+                    @for (img of item.images; track $index) {
+                    <img [src]="img" [alt]="item.name" (click)="carFeatures.openImage(img, i, $index)" />
+                    }
                 </div>
-                }
-
-                <div class="btn-container">
-                    <button (click)="carFeatures.prevImage(i)">&lt;</button>
-                    <button (click)="carFeatures.nextImage(i)">&gt;</button>
-                </div>
-
+                
             </div>
+                <div class="swipe-hint">← →</div>
+
             <div class="vehicle-info">
                 <h4>{{ item.category }}</h4>
                 <h3>{{ item.name }}</h3>
                 <p>{{ item.description }}</p>
             </div>
-
             <div class="vehicle-specs">
                 @for (spec of item.performance; track $index) {
                 <div class="spec-item">
@@ -50,22 +43,35 @@
                 </div>
                 }
             </div>
-
             <div class="hyphen"></div>
             <h4>Highlights</h4>
-
             <div class="vehicle-highlights">
                 @for (highlight of item.highlights; track $index) {
                 <div class="tags">{{ highlight }}</div>
                 }
             </div>
-
             <div class="btn-container">
                 <a href="#contact">Jetzt Anfragen</a>
             </div>
-
         </div>
         }
-
     </div>
+@if (carFeatures.selectedImage) {
+<div class="image-modal" (click)="carFeatures.closeImage()"
+    (touchstart)="carFeatures.onModalTouchStart($event)"
+    (touchmove)="carFeatures.onModalTouchMove($event)"
+    (touchend)="carFeatures.onModalTouchEnd($event)">
+    <div class="swipe-hint">← →</div>
+    <div class="modal-slider-track"
+        [style.transform]="'translateX(calc(-' + carFeatures.selectedIndex + ' * 100% + ' + carFeatures.modalDragOffset + 'px))'"
+        [style.transition]="carFeatures.isModalDragging ? 'none' : 'transform 0.3s ease'"
+        (click)="$event.stopPropagation()">
+        @for (img of carFeatures.cars[carFeatures.selectedCarIndex].images; track $index) {
+            <img [src]="img" />
+        }
+    </div>
+</div>
+}
+
+
 </section>

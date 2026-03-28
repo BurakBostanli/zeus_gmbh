@@ -161,4 +161,32 @@ prevModalImage() {
     (this.selectedIndex - 1 + images.length) % images.length;
   this.selectedImage = images[this.selectedIndex];
 }
+
+modalDragOffset = 0;
+isModalDragging = false;
+
+onModalTouchStart(event: TouchEvent) {
+  this.touchStartX = event.changedTouches[0].clientX;
+  this.isModalDragging = true;
+}
+
+onModalTouchMove(event: TouchEvent) {
+  event.stopPropagation();
+  const diff = event.changedTouches[0].clientX - this.touchStartX;
+  this.modalDragOffset = diff;
+}
+
+onModalTouchEnd(event: TouchEvent) {
+  const diff = this.touchStartX - event.changedTouches[0].clientX;
+  this.isModalDragging = false;
+  this.modalDragOffset = 0;
+
+  if (Math.abs(diff) < 50) return;
+
+  if (diff > 0) {
+    this.nextModalImage();
+  } else {
+    this.prevModalImage();
+  }
+}
 }
