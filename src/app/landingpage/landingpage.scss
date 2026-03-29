@@ -1,13 +1,26 @@
-app-benefits-section{
-    display: flex;
-    background: linear-gradient(to bottom, rgb(0, 0, 0) 1%, rgba(0, 0, 0, 0.739) 50%), url('/assets/backgrounds/background_2.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+app-benefits-section {
+  display: flex;
+  background: linear-gradient(to bottom, rgb(0, 0, 0) 1%, rgba(0, 0, 0, 0.739) 50%), url('/assets/backgrounds/background_2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  justify-content: center;
 }
 
-app-footer{
-        display: flex;
+app-footer {
+  display: flex;
+  background-color: black;
+}
 
-    background-color: black;
+app-car-list {
+  display: flex;
+  justify-content: center;
+}
+
+app-contact {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.065);
+
 }

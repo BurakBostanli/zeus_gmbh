@@ -1,5 +1,6 @@
 section {
     padding: 60px 20px;
+    max-width: 1440px;
 
 
     h2 {
@@ -34,11 +35,11 @@ section {
         margin-top: 30px;
 
         img {
-            border: solid 2px  #c59c134f;
+            border: solid 2px #c59c134f;
             height: 58px;
             width: 58px;
             border-radius: 50px;
-            background-color:  #c59c132a;
+            background-color: #c59c132a;
             padding: 10px;
             margin-bottom: 10px;
         }
@@ -50,7 +51,7 @@ section {
         width: 100%;
         height: 0.5px;
         background: linear-gradient(to right,
-                 #C59C13 0%,
+                #C59C13 0%,
                 rgba(255, 255, 255, 0) 100%);
         transform: scaleX(0);
         transform-origin: left;
@@ -61,4 +62,14 @@ section {
     .hyphen.active {
         transform: scaleX(1);
     }
+}
+
+.insurance-card-wrapper {
+  gap: 50px;
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
 }

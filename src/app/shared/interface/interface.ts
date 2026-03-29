@@ -4,7 +4,7 @@ export interface Car {
   name: string;
   description: string;
   images: string[];
-
+  price: number;
   performance: {
     key: string;
     value: string | number;

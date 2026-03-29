@@ -74,35 +74,4 @@ export class CarList implements AfterViewInit, OnDestroy {
       }
     }, stepTime);
   }
-
-  touchStartX = 0;
-dragOffsets: number[] = [];
-isDragging = false;
-
-onTouchStart(event: TouchEvent) {
-  this.touchStartX = event.changedTouches[0].clientX;
-  this.isDragging = true;
-}
-
-onTouchMove(event: TouchEvent, carIndex: number) {
-  event.preventDefault();
-  const diff = event.changedTouches[0].clientX - this.touchStartX;
-  this.dragOffsets[carIndex] = diff;
-}
-
-onTouchEnd(event: TouchEvent, carIndex: number) {
-  const diff = this.touchStartX - event.changedTouches[0].clientX;
-  this.isDragging = false;
-  this.dragOffsets[carIndex] = 0;
-
-  if (Math.abs(diff) < 50) return;
-
-  if (diff > 0) {
-    this.carFeatures.nextImage(carIndex);
-  } else {
-    this.carFeatures.prevImage(carIndex);
-  }
-}
-
-
 }
