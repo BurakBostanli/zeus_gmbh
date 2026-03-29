@@ -15,9 +15,15 @@
                     <img [src]="img" [alt]="item.name" (click)="carFeatures.openImage(img, i, $index)" />
                     }
                 </div>
-                
+
             </div>
-                <div class="swipe-hint">← →</div>
+            <div class="swipe-hint">← →</div>
+            <div class="dot-container">
+
+                @for (img of item.images; track $index; let imgIndex = $index) {
+                <div class="dot" [class.dot-active]="imgIndex === (carFeatures.currentIndexes[i] || 0)"></div>
+                }
+            </div>
 
             <div class="vehicle-info">
                 <h4>{{ item.category }}</h4>
@@ -56,22 +62,21 @@
         </div>
         }
     </div>
-@if (carFeatures.selectedImage) {
-<div class="image-modal" (click)="carFeatures.closeImage()"
-    (touchstart)="carFeatures.onModalTouchStart($event)"
-    (touchmove)="carFeatures.onModalTouchMove($event)"
-    (touchend)="carFeatures.onModalTouchEnd($event)">
-    <div class="swipe-hint">← →</div>
-    <div class="modal-slider-track"
-        [style.transform]="'translateX(calc(-' + carFeatures.selectedIndex + ' * 100% + ' + carFeatures.modalDragOffset + 'px))'"
-        [style.transition]="carFeatures.isModalDragging ? 'none' : 'transform 0.3s ease'"
-        (click)="$event.stopPropagation()">
-        @for (img of carFeatures.cars[carFeatures.selectedCarIndex].images; track $index) {
+    @if (carFeatures.selectedImage) {
+    <div class="image-modal" (click)="carFeatures.closeImage()" (touchstart)="carFeatures.onModalTouchStart($event)"
+        (touchmove)="carFeatures.onModalTouchMove($event)" (touchend)="carFeatures.onModalTouchEnd($event)">
+        <div class="swipe-hint">← →</div>
+        <div class="modal-slider-track"
+            [style.transform]="'translateX(calc(-' + carFeatures.selectedIndex + ' * 100% + ' + carFeatures.modalDragOffset + 'px))'"
+            [style.transition]="carFeatures.isModalDragging ? 'none' : 'transform 0.3s ease'"
+            (click)="$event.stopPropagation()">
+            @for (img of carFeatures.cars[carFeatures.selectedCarIndex].images; track $index) {
             <img [src]="img" />
-        }
+            }
+        </div>
+        
     </div>
-</div>
-}
+    }
 
 
 </section>

@@ -63,7 +63,6 @@ export class CarList implements AfterViewInit, OnDestroy {
     let current = 0;
     const steps = duration / stepTime;
     const increment = targetValue / steps;
-    
     const interval = setInterval(() => {
       current += increment;
       if (current >= targetValue) {

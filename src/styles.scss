@@ -22,15 +22,17 @@ a {
   cursor: pointer;
 }
 
-h1{
+h1 {
   font-weight: 300;
 }
 
-h2,h3,h4 {
+h2,
+h3,
+h4 {
   font-weight: 200;
 }
 
-button{
+button {
   padding: 16px 12px;
   letter-spacing: 1px;
   background: white;
@@ -39,7 +41,7 @@ button{
   color: black;
 }
 
-.tags{
+.tags {
   font-size: 14px;
   padding: 8px 8px;
   background: rgba(66, 66, 66, 0.051);
@@ -51,6 +53,24 @@ button{
   display: none;
 }
 
+.dot-container {
+  display: flex;
+  gap: 2px;
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    background: rgba(128, 128, 128, 0.212);
+    border-radius: 10px;
+  }
+
+  .dot-active {
+    width: 10px;
+    height: 10px;
+    background: #002A6B ;
+    border-radius: 10px;
+  }
+}
 
 /* poppins-100 - latin */
 @font-face {
