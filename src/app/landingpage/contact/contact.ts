@@ -83,7 +83,7 @@ export class Contact {
 
   ngOnInit() {
     this.titleService.setTitle(
-      'Zeus Auto - Premium Rental | Südbayern',
+      'Zeus GmbH - Sportwagenvermietung - Premium Rental | Südbayern',
     );
     this.metaService.updateTag({
       name: 'description',
@@ -186,7 +186,7 @@ export class Contact {
   executeAction(title: string, value: string) {
     if (title === 'E-Mail') window.location.href = `mailto:${value}`;
     if (title === 'Telefon') window.location.href = `tel:${value}`;
-    if (title === 'WhatsApp') window.open(`https://wa.me/${value.replace(/\D/g, '')}`, '_blank');
+if (title === 'WhatsApp') window.open(`https://wa.me/${value.replace(/\D/g, '')}?text=`, '_blank');
     if (title === 'Standort') window.open(`https://maps.google.com/?q=${value}`, '_blank');
   }
 }

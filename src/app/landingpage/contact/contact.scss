@@ -89,6 +89,15 @@ form {
       background: #ffffff;
       color: #000000;
       outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 0;
+    }
+
+    select {
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 0;
     }
 
     input::placeholder,
@@ -150,7 +159,7 @@ form {
   justify-content: center;
   align-items: start;
 
-  span{
+  span {
     font-size: 14px;
     color: rgb(117, 117, 117);
   }
@@ -179,11 +188,11 @@ button {
   flex-direction: column;
   gap: 8px;
 
-  p{
+  p {
     font-weight: 200;
   }
 
-  h2{
+  h2 {
     font-weight: 300;
   }
 
