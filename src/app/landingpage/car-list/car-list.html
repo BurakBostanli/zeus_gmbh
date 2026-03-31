@@ -1,14 +1,13 @@
 <section>
   <h2>Unsere Flotte</h2>
-  <p>Exklusive Supersportwagen und Luxusfahrzeuge für außergewöhnliche Momente</p>
+  <p class="p-tag">Exklusive Supersportwagen und Luxusfahrzeuge für außergewöhnliche Momente</p>
 
   <div class="vehicle-grid">
     @for (item of cars; track $index; let i = $index) {
-    <div class="vehicle-card" appFadeInOnScroll fadeClass="fade-in-y"
-        fadeVisibleClass="fade-in-y-visible">
+    <div class="vehicle-card" appFadeInOnScroll fadeClass="fade-in-y" fadeVisibleClass="fade-in-y-visible">
       <div class="vehicle-image" (touchstart)="carFeatures.onTouchStart($event)"
         (touchmove)="carFeatures.onTouchMove($event, i)" (touchend)="carFeatures.onTouchEnd($event, i)">
-        <div class="price-tag">ab {{item.price}} €</div>
+        <div appFadeInOnScroll fadeClass="fade-in-x" fadeVisibleClass="fade-in-x-visible" class="price-tag">ab {{item.price}} €</div>
         <div class="slider-track"
           [style.transform]="'translateX(calc(-' + (carFeatures.currentIndexes[i] || 0) + ' * 100% + ' + (carFeatures.dragOffsets[i] || 0) + 'px))'"
           [style.transition]="carFeatures.isDragging ? 'none' : 'transform 0.3s ease'">
@@ -27,7 +26,6 @@
       </div>
 
       <div class="input-wrapper">
-
         <div class="vehicle-info">
           <span>{{ item.category }}</span>
           <h3>{{ item.name }}</h3>
@@ -67,20 +65,19 @@
 
     }
   </div>
-
   @if (carFeatures.selectedImage) {
-  <div class="image-modal" (click)="carFeatures.closeImage()" (touchstart)="carFeatures.onModalTouchStart($event)"
+  <div class="image-modal" (touchstart)="carFeatures.onModalTouchStart($event)"
     (touchmove)="carFeatures.onModalTouchMove($event)" (touchend)="carFeatures.onModalTouchEnd($event)">
+    <a (click)="carFeatures.closeImage()">
+      <div class="arrow-left"></div>Zurück
+    </a>
     <div class="modal-slider-track"
       [style.transform]="'translateX(calc(-' + carFeatures.selectedIndex + ' * 100% + ' + carFeatures.modalDragOffset + 'px))'"
       [style.transition]="carFeatures.isModalDragging ? 'none' : 'transform 0.3s ease'"
       (click)="$event.stopPropagation()">
       @for (img of carFeatures.cars[carFeatures.selectedCarIndex].images; track $index) {
-      <img [src]="img" />
-      }
+      <img [src]="img" /> }
     </div>
   </div>
   }
-
-
 </section>

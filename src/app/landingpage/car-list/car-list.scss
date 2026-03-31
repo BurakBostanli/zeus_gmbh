@@ -3,10 +3,11 @@ section {
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  padding: 60px 20px;
+  padding: 60px 0px;
   max-width: 1440px;
 
   h2 {
+    padding: 0px 20px;
     width: 100%;
     justify-content: center;
     display: flex;
@@ -39,7 +40,7 @@ section {
         font-weight: 200;
         padding: 8px;
         width: 100%;
-        background-color: #002A6B;
+        background-color: #000000;
         color: white;
       }
     }
@@ -162,12 +163,14 @@ section {
 }
 
 .price-tag {
+  position: absolute;
+  top: 20px;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 200;
   padding: 8px;
-  width: 100%;
   background: linear-gradient(to right, #000000 100%);
   color: white;
 }
@@ -175,8 +178,9 @@ section {
 .image-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.27);
+  background: rgb(0, 0, 0);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 999;
@@ -193,6 +197,33 @@ section {
       max-height: 90vh;
       object-fit: contain;
     }
+  }
+
+  
+  a {
+    position: absolute;
+    z-index: 5;
+    left: 20px;
+    top: 20px;
+    color: white;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    transition: transform 0.2s ease;
+    transform-origin: left center;
+
+    .arrow-left {
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-right: 15px solid rgb(255, 255, 255);
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
   }
 }
 
@@ -214,6 +245,7 @@ section {
 }
 
 .slider-track {
+  background-color: black;
   display: flex;
   will-change: transform;
 
@@ -252,4 +284,9 @@ section {
   h4 {
     text-align: center;
   }
+}
+
+
+.p-tag{
+  padding: 0px 20px;
 }
