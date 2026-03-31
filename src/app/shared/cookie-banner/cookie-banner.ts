@@ -96,7 +96,7 @@ cookies: Imprints[] = [
     const analytics = this.cookieService.get('analytics');
 
     if (consent) {
-      this.showBanner = true; // set showbanner flag here
+      this.showBanner = false; // set showbanner flag here
       this.analytics = analytics === 'true';
       return;
     }

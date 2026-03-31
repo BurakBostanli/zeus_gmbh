@@ -9,7 +9,7 @@
 
   <div class="socials-wrapper">
     @for (item of socials; track $index) {
-    <a href=""><img [src]="item.imPath" [alt]="item.social"></a>
+    <a [href]="item.link" target="_blank"><img [src]="item.imPath" [alt]="item.social"></a>
     }
   </div>
 

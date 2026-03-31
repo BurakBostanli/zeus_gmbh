@@ -9,8 +9,15 @@ section {
     justify-content: center;
     padding: 20px;
     text-align: center;
-    gap: 50px;
 
+}
+
+    .headline-wrapper{
+            gap: 50px;
+
+                display: flex;
+        flex-direction: column;
+        align-items: center;
     .btn-container {
         display: flex;
         flex-direction: column;
@@ -24,8 +31,7 @@ section {
             color: rgb(0, 0, 0);
         }
     }
-}
-
+    }
 h1,
 h4 {
     color: white;
@@ -66,3 +72,17 @@ h4 {
         transform: translateY(10px) rotate(-45deg);
     }
 }
+.d_none{
+    display: none;
+}
+.fade-in {
+    display: flex;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+

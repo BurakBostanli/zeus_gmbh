@@ -15,12 +15,12 @@ export class Footer {
     {
       imPath: '/assets/icons/tiktokDefault.png',
       social: 'TikTok',
-      link: '',
+      link: 'https://www.tiktok.com/@zeus.gmbh',
     },
         {
       imPath: '/assets/icons/instagramDefault.png',
       social: 'Instagram',
-      link: '',
+      link: 'https://www.instagram.com/zeus.gmbh_sportwagenvermietung?igsh=MThjNjJnaXN0aDAwOQ==',
     },
   ];
 

@@ -17,8 +17,7 @@ import { FadeInOnScrollDirective } from '../../directives/fade-in-on-scroll';
 export class Contact {
 
   cars: Car[] = [];
-
-
+  showMap: boolean = false;
   contactInput: ContactInfo[] = [
     {
       imgPath: 'assets/icons/mailDefault.png',

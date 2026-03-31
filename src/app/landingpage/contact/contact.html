@@ -16,6 +16,15 @@
   </div>
 }
 
+<button (click)="showMap = !showMap">
+  {{ showMap ? 'Karte ausblenden' : 'Karte anzeigen' }}
+</button>
+  <div class="iframe-wrapper" [class.map-open]="showMap == true">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2632.4159224884033!2d11.493766877018912!3d48.71664377131321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e5503b56a2d97%3A0xc77543ef6e4cfd9a!2sZeus%20GmbH%20-%20Autovermietung!5e0!3m2!1sde!2sde!4v1774994885002!5m2!1sde!2sde" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+  </div>
+
+
     </div>
     <form class="contactForm" novalidate (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" appFadeInOnScroll appFadeInOnScroll fadeClass="fade-in-y"
         fadeVisibleClass="fade-in-y-visible">
@@ -91,5 +100,6 @@
     </form>
 
   </div>
+
 
 </section>
