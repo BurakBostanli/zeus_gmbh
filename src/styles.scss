@@ -73,6 +73,29 @@ button {
   }
 }
 
+
+.fade-in-y {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.fade-in-y-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-x {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.fade-in-x-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 /* poppins-100 - latin */
 @font-face {
   font-display: block;

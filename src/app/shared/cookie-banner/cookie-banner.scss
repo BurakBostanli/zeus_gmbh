@@ -1,0 +1,84 @@
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-100%) translateX(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%);
+  }
+}
+
+.cookie-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: slideIn 0.5s ease-out;
+  width: 90%;
+  max-width: 600px;
+  background: white;
+  border: 1px solid #ddd;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.cookie-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+h3,
+p,
+label {
+  margin-top: 0;
+  color: #333;
+}
+
+a {
+  color: #002A6B;
+}
+
+.cookie-options {
+  margin: 15px 0;
+}
+
+.cookie-option {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.cookie-option input {
+  margin-right: 10px;
+}
+
+.cookie-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.cookie-buttons button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-accept {
+  background: #002A6B;
+  color: white;
+}
+
+.btn-necessary {
+  background: #6c757d;
+  color: white;
+}
+
+.btn-settings {
+  background: transparent;
+  border: 1px solid #007bff;
+  color: #007bff;
+}

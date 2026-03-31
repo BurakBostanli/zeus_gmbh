@@ -3,9 +3,9 @@
   <p>Exzelenz auf Rädern seit 2016</p>
 
   <div class="router-wrapper">
-<a [routerLink]="'impressum'" [state]="{ data: imprint, title: 'Impressum' }">Impressum</a>
-<a [routerLink]="'datenschutz'" [state]="{ data: datenschutz, title: 'Datenschutz' }">Datenschutz</a>
-<a [routerLink]="'agb'" [state]="{ data: agb, title: 'AGB' }">AGB</a>  </div>
+<a [routerLink]="'/impressum'" [state]="{ data: imprint, title: 'Impressum' }">Impressum</a>
+<a [routerLink]="'/datenschutz'" [state]="{ data: datenschutz, title: 'Datenschutz' }">Datenschutz</a>
+<a [routerLink]="'/agb'" [state]="{ data: agb, title: 'AGB' }">AGB</a></div>
 
   <div class="socials-wrapper">
     @for (item of socials; track $index) {

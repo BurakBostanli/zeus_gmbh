@@ -4,7 +4,8 @@
 
     <div class="insurance-card-wrapper">
         @for (item of insurance; track $index) {
-        <div class="insurance-card">
+        <div class="insurance-card" appFadeInOnScroll fadeClass="fade-in-x"
+        fadeVisibleClass="fade-in-x-visible">
             <img [src]="item.iconUrl" alt="benefits-icon">
             <h3>{{item.title}}</h3>
             <span>{{item.description}}</span>

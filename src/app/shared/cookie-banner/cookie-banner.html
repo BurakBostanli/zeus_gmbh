@@ -1,1 +1,30 @@
-<p>cookie-banner works!</p>
+@if (showBanner) {
+  <div class="cookie-banner">
+    <div class="cookie-content">
+      <h3>Cookie-Einstellungen</h3>
+      <p>
+        Wir verwenden Cookies. Technisch notwendige Cookies sind für den Betrieb der Website erforderlich.
+        Analyse-Cookies setzen wir nur mit deiner Einwilligung.
+      </p>
+
+      <p>
+<a [routerLink]="'datenschutz'" [state]="{ data: cookies, title: 'Cookies' }">
+          Details in unserer Datenschutzerklärung
+        </a>
+      </p>
+
+      <div class="cookie-options">
+        <div class="cookie-option">
+          <input type="checkbox" id="necessary" checked disabled>
+          <label for="necessary">Notwendige Cookies (immer aktiv)</label>
+        </div>
+      </div>
+
+      <div class="cookie-buttons">
+        <button class="btn-necessary" (click)="acceptNecessary()">Nur notwendige</button>
+        <button class="btn-decline" (click)="acceptNecessary()">Ablehnen</button>
+        <button class="btn-accept" (click)="acceptAll()">Alle akzeptieren</button>
+      </div>
+    </div>
+  </div>
+}

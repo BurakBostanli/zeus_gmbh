@@ -4,7 +4,8 @@
 
   <div class="vehicle-grid">
     @for (item of cars; track $index; let i = $index) {
-    <div class="vehicle-card">
+    <div class="vehicle-card" appFadeInOnScroll fadeClass="fade-in-y"
+        fadeVisibleClass="fade-in-y-visible">
       <div class="vehicle-image" (touchstart)="carFeatures.onTouchStart($event)"
         (touchmove)="carFeatures.onTouchMove($event, i)" (touchend)="carFeatures.onTouchEnd($event, i)">
         <div class="price-tag">ab {{item.price}} €</div>

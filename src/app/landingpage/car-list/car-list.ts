@@ -1,10 +1,11 @@
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { Car } from '../../shared/interface/interface';
 import { CarFeatures } from '../../services/car-features';
+import { FadeInOnScrollDirective } from '../../directives/fade-in-on-scroll';
 
 @Component({
   selector: 'app-car-list',
-  imports: [],
+  imports: [FadeInOnScrollDirective],
   templateUrl: './car-list.html',
   styleUrl: './car-list.scss',
 })
