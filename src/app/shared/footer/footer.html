@@ -1,15 +1,18 @@
 <footer>
-    <h2>Zeus GmbH - Sportwagenvermietung</h2>
-    <p>Exzelenz auf Rädern seit 2016</p>
+  <h2>Zeus GmbH - Sportwagenvermietung</h2>
+  <p>Exzelenz auf Rädern seit 2016</p>
 
-    <div class="router-wrapper">
-        <a href="">Impressum</a>
-        <a href="">Datenschutz</a>
-        <a href="">AGB</a>
-    </div>
+  <div class="router-wrapper">
+<a [routerLink]="'impressum'" [state]="{ data: imprint, title: 'Impressum' }">Impressum</a>
+<a [routerLink]="'datenschutz'" [state]="{ data: datenschutz, title: 'Datenschutz' }">Datenschutz</a>
+<a [routerLink]="'agb'" [state]="{ data: agb, title: 'AGB' }">AGB</a>  </div>
 
-    <div class="socials-wrapper"></div>
+  <div class="socials-wrapper">
+    @for (item of socials; track $index) {
+    <a href=""><img [src]="item.imPath" [alt]="item.social"></a>
+    }
+  </div>
 
-    <div class="hyphen"></div>
-    <p class="copyright">© 2026  Zeus GmbH - Sportwagenvermietung. Alle Rechte vorbehalten.</p>
+  <div class="hyphen"></div>
+  <p class="copyright">© 2026 Zeus GmbH - Sportwagenvermietung. Alle Rechte vorbehalten.</p>
 </footer>

@@ -1,0 +1,46 @@
+.router-input-container {
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    font-size: 54px;
+
+    .hyphen {
+      margin: 20px 0px;
+      width: 30%;
+      height: 1px;
+      background-color: black;
+    }
+  }
+
+  h3 {
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+
+  h4{
+    font-weight: 300;
+  }
+
+  span{
+    font-weight: 200;
+  }
+}
+
+.input-wrapper{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.strong{
+  font-weight: normal !important;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+app-footer {
+  display: flex;
+  background-color: black;
+}

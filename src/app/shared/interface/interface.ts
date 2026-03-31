@@ -27,3 +27,15 @@ export interface ContactInfo {
   title: string;
   description: string[];
 }
+
+export interface Socials {
+  imPath: string;
+  social: string;
+  link: string;
+}
+
+export interface Imprints {
+  title?: string;
+  input?: string;
+  description?: string[];
+}

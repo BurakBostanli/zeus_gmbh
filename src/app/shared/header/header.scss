@@ -1,0 +1,26 @@
+header {
+  padding: 20px;
+  display: flex;
+  background-color: black;
+  a {
+    color: white;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    transition: transform 0.2s ease;
+    transform-origin: left center;
+
+    .arrow-left {
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-right: 15px solid rgb(255, 255, 255);
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+  }
+}
