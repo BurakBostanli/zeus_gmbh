@@ -6,10 +6,11 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ContactInfo, Car } from '../../shared/interface/interface';
 import { CarFeatures } from '../../services/car-features';
+import { FadeInOnScrollDirective } from '../../directives/fade-in-on-scroll';
 
 @Component({
   selector: 'app-contact',
-  imports: [CommonModule, FormsModule, RouterLink,],
+  imports: [CommonModule, FormsModule, RouterLink, FadeInOnScrollDirective],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
