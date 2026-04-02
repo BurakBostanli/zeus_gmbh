@@ -32,23 +32,30 @@
 .desktop-section {
   display: flex;
   flex-direction: column;
-  padding: 60px 20px;
+  padding: 60px 0px;
   max-width: 1440px;
-
+  width: 100%;
   @media (max-width: 1024px) {
     display: none;
   }
 
+
+
   img {
+    flex: 1;
     height: 400px;
-    width: 800px;
     object-fit: cover;
   }
+
 
   .insurance-card-wrapper {
     display: flex;
     gap: 80px;
     flex-direction: column;
+
+    .insurance-card{
+      width: 45%;
+    }
   }
 }
 

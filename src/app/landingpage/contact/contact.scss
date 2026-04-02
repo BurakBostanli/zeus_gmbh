@@ -1,10 +1,14 @@
 section {
   padding: 60px 20px;
+    @media (min-width: 1024px) {
+  padding: 60px 0px;
+
+  }
 }
 
 .formWrapper {
   @media (min-width: 1024px) {
-    gap: 20px;
+    gap: 40px;
     display: flex;
     width: 100%;
     align-items: center;
@@ -18,9 +22,9 @@ section {
   padding-top: 30px;
 
   @media (min-width: 1024px) {
+      padding-top: unset;
     width: 50%;
     height: 568px;
-    padding: 0em 2em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -49,6 +53,7 @@ form {
   color: #fff;
     max-width: 1440px;
     width: 100%;
+
 
   .hp-field {
     position: absolute;
