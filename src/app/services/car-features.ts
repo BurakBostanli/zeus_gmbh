@@ -47,6 +47,47 @@ export class CarFeatures {
       ],
       highlights: ['Leistungsstark', 'Rennsporttauglich', 'Luxusausstattung'],
     },
+        {
+      id: 2,
+      category: 'Sportwagen',
+      name: 'RS 5 Sportback',
+      description:
+        'Der Ferrari 488 Pista ist ein exklusiver Supersportwagen mit beeindruckender Leistung.',
+      price: 550,
+      images: [
+        '/assets/cars/rs5/rs5_1.jpeg',
+        '/assets/cars/rs5/rs5_2.jpeg',
+        '/assets/cars/rs5/rs5_3.jpeg',
+      ],
+      performance: [
+        {
+          key: 'horsepower',
+          value: 720,
+          label: 'Leistung',
+          unit: 'PS',
+          icon: '/assets/cars/icons/horsepower.png',
+        },
+        {
+          key: 'acceleration',
+          value: '2,9 Sekunden',
+          label: 'Beschleunigung',
+          icon: '/assets/cars/icons/speed.png',
+        },
+        {
+          key: 'capacity',
+          value: '2 Personen',
+          label: 'Kapazität',
+          icon: '/assets/cars/icons/persons.png',
+        },
+        {
+          key: 'transmission',
+          value: 'Automatik',
+          label: 'Getriebe',
+          icon: '/assets/cars/icons/gear.png',
+        },
+      ],
+      highlights: ['Leistungsstark', 'Rennsporttauglich', 'Luxusausstattung'],
+    },
     {
       id: 3,
       category: 'SUV / Geländewagen',
