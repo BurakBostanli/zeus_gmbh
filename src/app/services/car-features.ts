@@ -108,14 +108,12 @@ export class CarFeatures {
   prevImage(carIndex: number): void {
     const current = this.currentIndexes[carIndex] || 0;
     const maxIndex = this.cars[carIndex].images.length - 1;
-
     this.currentIndexes[carIndex] = current === 0 ? maxIndex : current - 1;
   }
 
   nextImage(carIndex: number): void {
     const current = this.currentIndexes[carIndex] || 0;
     const maxIndex = this.cars[carIndex].images.length - 1;
-
     this.currentIndexes[carIndex] = current === maxIndex ? 0 : current + 1;
   }
 

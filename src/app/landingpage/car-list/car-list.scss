@@ -7,12 +7,15 @@ section {
   max-width: 1440px;
 
   h2 {
-    padding: 0px 20px;
     width: 100%;
     justify-content: center;
     display: flex;
     align-items: center;
     padding-bottom: 20px;
+
+    @media (min-width: 1024px) {
+      justify-content: start;
+    }
   }
 
   .vehicle-card {
@@ -25,7 +28,7 @@ section {
 
     @media (min-width: 1024px) {
       flex-direction: row;
-          padding-bottom: 5px;
+      padding-bottom: 5px;
 
     }
 
@@ -76,7 +79,6 @@ section {
 
         @media (min-width: 1024px) {
           height: 650px;
-
         }
       }
 
@@ -96,6 +98,9 @@ section {
       h3 {
         font-size: 24px;
         font-weight: 400;
+                @media (min-width: 1024px) {
+        font-size: 32px;
+        }
       }
 
       p {
@@ -200,10 +205,10 @@ section {
     }
   }
 
-  
+
   a {
     position: absolute;
-    z-index: 5;
+    z-index: 10;
     left: 20px;
     top: 20px;
     color: white;
@@ -224,7 +229,6 @@ section {
     &:hover {
       transform: scale(1.2);
     }
-
   }
 }
 
@@ -270,7 +274,6 @@ section {
   gap: 30px;
 }
 
-
 .input-wrapper {
   display: flex;
   flex-direction: column;
@@ -281,13 +284,21 @@ section {
     justify-content: space-around;
   }
 
-
   h4 {
     text-align: center;
   }
 }
 
-
-.p-tag{
+.p-tag {
   padding: 0px 20px;
+
+  @media (min-width: 1024px) {
+    padding: unset;
+  }
+}
+
+.mobile-wrapper {
+  @media (min-width: 1024px) {
+    display: none;
+  }
 }

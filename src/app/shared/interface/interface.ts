@@ -20,6 +20,8 @@ export interface InsuranceFeature {
   title: string;
   description: string;
   iconUrl: string;
+    imgPath?: string;
+
 }
 
 export interface ContactInfo {
@@ -29,7 +31,7 @@ export interface ContactInfo {
 }
 
 export interface Socials {
-  imPath: string;
+  imgPath: string;
   social: string;
   link: string;
 }

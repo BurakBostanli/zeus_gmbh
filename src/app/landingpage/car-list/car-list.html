@@ -7,7 +7,8 @@
     <div class="vehicle-card" appFadeInOnScroll fadeClass="fade-in-y" fadeVisibleClass="fade-in-y-visible">
       <div class="vehicle-image" (touchstart)="carFeatures.onTouchStart($event)"
         (touchmove)="carFeatures.onTouchMove($event, i)" (touchend)="carFeatures.onTouchEnd($event, i)">
-        <div appFadeInOnScroll fadeClass="fade-in-x" fadeVisibleClass="fade-in-x-visible" class="price-tag">ab {{item.price}} €</div>
+        <div appFadeInOnScroll fadeClass="fade-in-x" fadeVisibleClass="fade-in-x-visible" class="price-tag">ab
+          {{item.price}} €</div>
         <div class="slider-track"
           [style.transform]="'translateX(calc(-' + (carFeatures.currentIndexes[i] || 0) + ' * 100% + ' + (carFeatures.dragOffsets[i] || 0) + 'px))'"
           [style.transition]="carFeatures.isDragging ? 'none' : 'transform 0.3s ease'">
@@ -15,14 +16,14 @@
           <img [src]="img" [alt]="item.name" (click)="carFeatures.openImage(img, i, $index)" />
           }
         </div>
-
-        <div class=swipe-container> <span class="swipe-hint">← </span> <span class="swipe-hint">→</span></div>
-        <div class="dot-container">
-          @for (img of item.images; track $index; let imgIndex = $index) {
-          <div class="dot" [class.dot-active]="imgIndex === (carFeatures.currentIndexes[i] || 0)"></div>
-          }
+        <div class="mobile-wrapper">
+          <div class=swipe-container> <span class="swipe-hint">← </span> <span class="swipe-hint">→</span></div>
+          <div class="dot-container">
+            @for (img of item.images; track $index; let imgIndex = $index) {
+            <div class="dot" [class.dot-active]="imgIndex === (carFeatures.currentIndexes[i] || 0)"></div>
+            }
+          </div>
         </div>
-
       </div>
 
       <div class="input-wrapper">
@@ -76,8 +77,14 @@
       [style.transition]="carFeatures.isModalDragging ? 'none' : 'transform 0.3s ease'"
       (click)="$event.stopPropagation()">
       @for (img of carFeatures.cars[carFeatures.selectedCarIndex].images; track $index) {
-      <img [src]="img" /> }
+      <img [src]="img" />
+      }
     </div>
+    <div class="btn-container">
+      <button (click)="carFeatures.prevModalImage(); "><</button>
+      <button (click)="carFeatures.nextModalImage()">></button>
+    </div>
+
   </div>
   }
 </section>

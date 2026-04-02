@@ -5,6 +5,10 @@ app-benefits-section {
   background-position: center;
   background-repeat: no-repeat;
   justify-content: center;
+
+  @media (min-width: 1024px) {
+    background: white;
+  }
 }
 
 app-footer {

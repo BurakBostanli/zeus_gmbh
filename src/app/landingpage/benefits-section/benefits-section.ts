@@ -17,24 +17,28 @@ export class BenefitsSection implements AfterViewInit {
       description:
         'Rundum geschützt unterwegs – ohne Selbstbeteiligung und versteckte Kosten.',
       iconUrl: '/assets/icons/insurance.png',
+      imgPath: '/assets/cars/insurance/img1.jpeg'
     },
     {
       title: '24/7 Verfügbarkeit',
       description:
         'Flexibel abholen und zurückgeben. Wir sind immer für Sie erreichbar.',
       iconUrl: '/assets/icons/time.png',
+      imgPath: '/assets/cars/insurance/img2.jpeg'
     },
     {
       title: 'Premium-Ausstattung',
       description:
         'Nur Fahrzeuge der neuesten Generation mit exklusiver Vollausstattung.',
       iconUrl: '/assets/icons/premium.png',
+      imgPath: '/assets/cars/insurance/img3.jpeg'
     },
     {
       title: 'Persönlicher Service',
       description:
         'Individuelle Beratung und maßgeschneiderte Lösungen für Ihre Bedürfnisse.',
       iconUrl: '/assets/icons/service.png',
+      imgPath: '/assets/cars/insurance/img4.jpeg'
     },
   ];
 

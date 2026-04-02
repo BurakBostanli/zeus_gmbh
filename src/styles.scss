@@ -41,6 +41,18 @@ button {
   color: black;
 }
 
+@media (min-width: 1024px) {
+  h2 {
+    font-size: 56px;
+  }
+
+  .p-tag {
+    font-size: 24px;
+    font-weight: 300;
+  }
+
+}
+
 .tags {
   font-size: 14px;
   padding: 8px 8px;
@@ -68,7 +80,7 @@ button {
   .dot-active {
     width: 10px;
     height: 10px;
-    background: #000000 ;
+    background: #000000;
     border-radius: 10px;
   }
 }
@@ -92,6 +104,17 @@ button {
 }
 
 .fade-in-x-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-xx {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.fade-in-xx-visible {
   opacity: 1;
   transform: translateX(0);
 }

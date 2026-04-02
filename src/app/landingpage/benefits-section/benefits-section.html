@@ -1,17 +1,34 @@
-<section>
-    <h2>Ihre Vorteile</h2>
-    <p>Mehr als nur eine Autovermietung – Ihr Partner für exklusive Mobilität</p>
+<section class="mobile-section">
+  <h2>Ihre Vorteile</h2>
+  <p>Mehr als nur eine Autovermietung – Ihr Partner für exklusive Mobilität</p>
 
-    <div class="insurance-card-wrapper">
-        @for (item of insurance; track $index) {
-        <div class="insurance-card" appFadeInOnScroll fadeClass="fade-in-x"
-        fadeVisibleClass="fade-in-x-visible">
-            <img [src]="item.iconUrl" alt="benefits-icon">
-            <h3>{{item.title}}</h3>
-            <span>{{item.description}}</span>
-                    <div class="hyphen"></div> 
+  <div class="insurance-card-wrapper">
+    @for (item of insurance; track $index) {
+    <div class="insurance-card" appFadeInOnScroll fadeClass="fade-in-x" fadeVisibleClass="fade-in-x-visible">
+      <img [src]="item.iconUrl" alt="benefits-icon">
+      <h3>{{item.title}}</h3>
+      <span>{{item.description}}</span>
+      <div class="hyphen"></div>
 
-        </div>
-    }
     </div>
+    }
+  </div>
+</section>
+
+<section class="desktop-section">
+  <h2>Ihre Vorteile</h2>
+  <p>Mehr als nur eine Autovermietung – Ihr Partner für exklusive Mobilität</p>
+
+  <div class="insurance-card-wrapper">
+    @for (item of insurance; track $index) {
+    <div class="text-wrapper" [class.swap]="$index % 2 === 1">
+      <img [src]="item.imgPath" appFadeInOnScroll fadeClass="fade-in-xx" fadeVisibleClass="fade-in-xx-visible">
+      <div class="insurance-card" appFadeInOnScroll fadeClass="fade-in-x" fadeVisibleClass="fade-in-x-visible">
+        <h3>{{item.title}}</h3>
+        <span>{{item.description}}</span>
+        <div class="hyphen"></div>
+      </div>
+    </div>
+    }
+  </div>
 </section>

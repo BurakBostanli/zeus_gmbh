@@ -13,12 +13,12 @@ import { Imprints } from '../interface/interface';
 export class Footer {
   socials: Socials[] = [
     {
-      imPath: '/assets/icons/tiktokDefault.png',
+      imgPath: '/assets/icons/tiktokDefault.png',
       social: 'TikTok',
       link: 'https://www.tiktok.com/@zeus.gmbh',
     },
         {
-      imPath: '/assets/icons/instagramDefault.png',
+      imgPath: '/assets/icons/instagramDefault.png',
       social: 'Instagram',
       link: 'https://www.instagram.com/zeus.gmbh_sportwagenvermietung?igsh=MThjNjJnaXN0aDAwOQ==',
     },
