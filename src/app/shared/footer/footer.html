@@ -1,18 +1,21 @@
-<footer>
-  <h2>Zeus GmbH - Sportwagenvermietung</h2>
-  <p>Exzelenz auf Rädern seit 2016</p>
+<footer aria-label="Seitenfu&szlig;">
+  <h2>Zeus GmbH – Sportwagenvermietung</h2>
+  <p>Exzellenz auf Rädern seit 2016</p>
 
-  <div class="router-wrapper">
-<a [routerLink]="'/impressum'" [state]="{ data: imprint, title: 'Impressum' }">Impressum</a>
-<a [routerLink]="'/datenschutz'" [state]="{ data: datenschutz, title: 'Datenschutz' }">Datenschutz</a>
-<a [routerLink]="'/agb'" [state]="{ data: agb, title: 'AGB' }">AGB</a></div>
+  <nav aria-label="Footer-Navigation">
+    <a [routerLink]="'/impressum'" [state]="{ data: imprint, title: 'Impressum' }">Impressum</a>
+    <a [routerLink]="'/datenschutz'" [state]="{ data: datenschutz, title: 'Datenschutz' }">Datenschutz</a>
+    <a [routerLink]="'/agb'" [state]="{ data: agb, title: 'AGB' }">AGB</a>
+  </nav>
 
   <div class="socials-wrapper">
     @for (item of socials; track $index) {
-    <a [href]="item.link" target="_blank"><img [src]="item.imgPath" [alt]="item.social"></a>
+    <a [href]="item.link" target="_blank" rel="noopener noreferrer" [attr.aria-label]="item.social + ' von Zeus GmbH'">
+      <img [src]="item.imgPath" [alt]="item.social">
+    </a>
     }
   </div>
 
   <div class="hyphen"></div>
-  <p class="copyright">© 2026 Zeus GmbH - Sportwagenvermietung. Alle Rechte vorbehalten.</p>
+  <p class="copyright">© 2026 Zeus GmbH – Sportwagenvermietung. Alle Rechte vorbehalten.</p>
 </footer>

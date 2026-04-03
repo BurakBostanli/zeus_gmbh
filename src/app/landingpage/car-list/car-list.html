@@ -1,10 +1,10 @@
-<section>
+<section aria-label="Unsere Fahrzeugflotte">
   <h2>Unsere Flotte</h2>
   <p class="p-tag">Exklusive Supersportwagen und Luxusfahrzeuge für außergewöhnliche Momente</p>
 
   <div class="vehicle-grid">
     @for (item of cars; track $index; let i = $index) {
-    <div class="vehicle-card" appFadeInOnScroll fadeClass="fade-in-y" fadeVisibleClass="fade-in-y-visible">
+    <article class="vehicle-card" appFadeInOnScroll fadeClass="fade-in-y" fadeVisibleClass="fade-in-y-visible">
       <div class="vehicle-image" (touchstart)="carFeatures.onTouchStart($event)"
         (touchmove)="carFeatures.onTouchMove($event, i)" (touchend)="carFeatures.onTouchEnd($event, i)">
         <div appFadeInOnScroll fadeClass="fade-in-x" fadeVisibleClass="fade-in-x-visible" class="price-tag">ab
@@ -13,7 +13,7 @@
           [style.transform]="'translateX(calc(-' + (carFeatures.currentIndexes[i] || 0) + ' * 100% + ' + (carFeatures.dragOffsets[i] || 0) + 'px))'"
           [style.transition]="carFeatures.isDragging ? 'none' : 'transform 0.3s ease'">
           @for (img of item.images; track $index) {
-          <img [src]="img" [alt]="item.name" (click)="carFeatures.openImage(img, i, $index)" />
+          <img [src]="img" [alt]="item.name + ' – Fahrzeugbild'" (click)="carFeatures.openImage(img, i, $index)" />
           }
         </div>
         <div class="mobile-wrapper">
@@ -29,7 +29,7 @@
       <div class="input-wrapper">
         <div class="vehicle-info">
           <span>{{ item.category }}</span>
-          <h3>{{ item.name }}</h3>
+          <h3>{{ item.name }} mieten</h3>
           <p>{{ item.description }}</p>
         </div>
         <div class="vehicle-specs">
@@ -59,17 +59,17 @@
           }
         </div>
         <div class="btn-container">
-          <a href="#contact">Jetzt Anfragen</a>
+          <a href="#contact" [attr.aria-label]="item.name + ' anfragen'">Jetzt Anfragen</a>
         </div>
       </div>
-    </div>
-
+    </article>
     }
   </div>
   @if (carFeatures.selectedImage) {
-  <div class="image-modal" (touchstart)="carFeatures.onModalTouchStart($event)"
+  <div class="image-modal" role="dialog" aria-modal="true" aria-label="Fahrzeugbilder"
+    (touchstart)="carFeatures.onModalTouchStart($event)"
     (touchmove)="carFeatures.onModalTouchMove($event)" (touchend)="carFeatures.onModalTouchEnd($event)">
-    <a (click)="carFeatures.closeImage()">
+    <a (click)="carFeatures.closeImage()" aria-label="Modal schließen">
       <div class="arrow-left"></div>Zurück
     </a>
     <div class="modal-slider-track"
@@ -77,14 +77,13 @@
       [style.transition]="carFeatures.isModalDragging ? 'none' : 'transform 0.3s ease'"
       (click)="$event.stopPropagation()">
       @for (img of carFeatures.cars[carFeatures.selectedCarIndex].images; track $index) {
-      <img [src]="img" />
+      <img [src]="img" [alt]="carFeatures.cars[carFeatures.selectedCarIndex].name + ' – Bild'" />
       }
     </div>
     <div class="btn-container">
-      <button (click)="carFeatures.prevModalImage(); "><</button>
-      <button (click)="carFeatures.nextModalImage()">></button>
+      <button (click)="carFeatures.prevModalImage()" aria-label="Vorheriges Bild"><</button>
+      <button (click)="carFeatures.nextModalImage()" aria-label="Nächstes Bild">></button>
     </div>
-
   </div>
   }
 </section>

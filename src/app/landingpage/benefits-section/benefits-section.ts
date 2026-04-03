@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { InsuranceFeature } from '../../shared/interface/interface';
 import { FadeInOnScrollDirective } from '../../directives/fade-in-on-scroll';
 
@@ -9,8 +9,6 @@ import { FadeInOnScrollDirective } from '../../directives/fade-in-on-scroll';
   styleUrl: './benefits-section.scss',
 })
 export class BenefitsSection implements AfterViewInit {
-  @ViewChild('hyphen') hyphen!: ElementRef;
-
   insurance: InsuranceFeature[] = [
     {
       title: 'Vollkasko inklusive',

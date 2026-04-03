@@ -14,7 +14,7 @@ import { FadeInOnScrollDirective } from '../../directives/fade-in-on-scroll';
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
-export class Contact {
+export class Contact implements OnInit {
 
   cars: Car[] = [];
   showMap: boolean = false;
@@ -57,7 +57,6 @@ export class Contact {
   submitError = false;
 
   localStorageKey = 'contactFormData';
-
   mailTest = false;
 
   post = {
@@ -78,18 +77,51 @@ export class Contact {
     private carFeatures: CarFeatures
   ) {
     this.loadFormData();
-    this.cars = this.carFeatures.cars
+    this.cars = this.carFeatures.cars;
   }
 
   ngOnInit() {
-    this.titleService.setTitle(
-      ' Zeus GmbH - Sportwagenvermietung - Premium Rental | Südbayern',
-    );
+    this.titleService.setTitle('Zeus GmbH – Sportwagen mieten in Südbayern | Premium Autovermietung');
     this.metaService.updateTag({
       name: 'description',
-      content:
-        '',
+      content: 'Jetzt Sportwagen mieten bei Zeus GmbH in Manching, Bayern. BMW M4, Audi RS5 und mehr. Persönliche Beratung & 24/7 Service.',
     });
+
+    this.injectLocalBusinessSchema();
+  }
+
+  private injectLocalBusinessSchema() {
+    const schema = {
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      name: 'Zeus GmbH',
+      url: 'https://www.zeus-auto.de',
+      telephone: '+4901708297053',
+      email: 'info@auto-zeus.de',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Ringstr. 12',
+        addressLocality: 'Manching',
+        postalCode: '85077',
+        addressCountry: 'DE',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 48.71664377131321,
+        longitude: 11.493766877018912,
+      },
+      openingHoursSpecification: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        opens: '00:00',
+        closes: '23:59',
+      },
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(schema);
+    document.head.appendChild(script);
   }
 
   loadFormData() {
@@ -144,7 +176,6 @@ export class Contact {
             this.submitSuccess = true;
             ngForm.resetForm();
             this.clearFormData();
-
             this.formData = {
               name: '',
               email: '',
@@ -167,7 +198,6 @@ export class Contact {
       this.submitSuccess = true;
       ngForm.resetForm();
       this.clearFormData();
-
       this.formData = {
         name: '',
         email: '',

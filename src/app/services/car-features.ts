@@ -7,52 +7,11 @@ import { Car } from '../shared/interface/interface';
 export class CarFeatures {
   cars: Car[] = [
     {
-      id: 1,
-      category: 'Supersportwagen',
-      name: 'Ferrari 488 Pista',
-      description:
-        'Der Ferrari 488 Pista ist ein exklusiver Supersportwagen mit beeindruckender Leistung.',
-      price: 550,
-      images: [
-        '/assets/cars/488_pista/ferrari_488_pista_3.jpg',
-        '/assets/cars/488_pista/ferrari_488_pista_2.jpg',
-        '/assets/cars/488_pista/ferrari_488_pista_1.jpg',
-      ],
-      performance: [
-        {
-          key: 'horsepower',
-          value: 720,
-          label: 'Leistung',
-          unit: 'PS',
-          icon: '/assets/cars/icons/horsepower.png',
-        },
-        {
-          key: 'acceleration',
-          value: '2,9 Sekunden',
-          label: 'Beschleunigung',
-          icon: '/assets/cars/icons/speed.png',
-        },
-        {
-          key: 'capacity',
-          value: '2 Personen',
-          label: 'Kapazität',
-          icon: '/assets/cars/icons/persons.png',
-        },
-        {
-          key: 'transmission',
-          value: 'Automatik',
-          label: 'Getriebe',
-          icon: '/assets/cars/icons/gear.png',
-        },
-      ],
-      highlights: ['Leistungsstark', 'Rennsporttauglich', 'Luxusausstattung'],
-    },
-        {
       id: 2,
       category: 'Sportwagen',
       name: 'RS 5 Sportback',
       description:
-        'Der Ferrari 488 Pista ist ein exklusiver Supersportwagen mit beeindruckender Leistung.',
+        'Der Audi RS 5 Sportback ist ein leistungsstarker Sportwagen mit exklusiver Ausstattung und modernem Design.',
       price: 550,
       images: [
         '/assets/cars/rs5/rs5_1.jpeg',
@@ -62,57 +21,14 @@ export class CarFeatures {
       performance: [
         {
           key: 'horsepower',
-          value: 720,
+          value: 450,
           label: 'Leistung',
           unit: 'PS',
           icon: '/assets/cars/icons/horsepower.png',
         },
         {
           key: 'acceleration',
-          value: '2,9 Sekunden',
-          label: 'Beschleunigung',
-          icon: '/assets/cars/icons/speed.png',
-        },
-        {
-          key: 'capacity',
-          value: '2 Personen',
-          label: 'Kapazität',
-          icon: '/assets/cars/icons/persons.png',
-        },
-        {
-          key: 'transmission',
-          value: 'Automatik',
-          label: 'Getriebe',
-          icon: '/assets/cars/icons/gear.png',
-        },
-      ],
-      highlights: ['Leistungsstark', 'Rennsporttauglich', 'Luxusausstattung'],
-    },
-    {
-      id: 3,
-      category: 'SUV / Geländewagen',
-      name: 'Mercedes-AMG G63',
-      description:
-        'Der Mercedes-AMG G63 kombiniert Luxus, Kraft und Offroad-Performance in einer ikonischen G-Klasse.',
-      price: 399,
-
-      images: [
-        '/assets/cars/g63/mercedes_amg_g63_1.jpg',
-        '/assets/cars/g63/mercedes_amg_g63_2.jpg',
-        '/assets/cars/g63/mercedes_amg_g63_3.jpg',
-        '/assets/cars/g63/mercedes_amg_g63_4.jpg',
-      ],
-      performance: [
-        {
-          key: 'horsepower',
-          value: 585,
-          label: 'Leistung',
-          unit: 'PS',
-          icon: '/assets/cars/icons/horsepower.png',
-        },
-        {
-          key: 'acceleration',
-          value: '4,5 Sekunden',
+          value: '3,9 Sekunden',
           label: 'Beschleunigung',
           icon: '/assets/cars/icons/speed.png',
         },
@@ -129,11 +45,95 @@ export class CarFeatures {
           icon: '/assets/cars/icons/gear.png',
         },
       ],
-      highlights: [
-        'Offroad-Performance',
-        'Luxusinterieur',
-        'Ikonisches Design',
+      highlights: ['Leistungsstark', 'Sportlich', 'Luxusausstattung'],
+    }, {
+      id: 3, // anpassen nach deiner Liste
+      category: 'Sportwagen',
+      name: 'M4 Competition',
+      description:
+        'Der BMW M4 Competition ist ein hochleistungsstarkes Coupé mit sportlichem Charakter und modernster Technik.',
+      price: 550, // anpassen
+      images: [
+        '/assets/cars/m4/m4_1.jpeg',
+        '/assets/cars/m4/m4_2.jpeg',
+        '/assets/cars/m4/m4_3.jpeg',
+        '/assets/cars/m4/m4_4.jpeg',
+
+        '/assets/cars/m4/m4_5.jpeg',
+
+        '/assets/cars/m4/m4_6.jpeg',
+
+        '/assets/cars/m4/m4_7.jpeg',
+
       ],
+      performance: [
+        {
+          key: 'horsepower',
+          value: 510, // 375 kW → ~510 PS
+          label: 'Leistung',
+          unit: 'PS',
+          icon: '/assets/cars/icons/horsepower.png',
+        },
+        {
+          key: 'acceleration',
+          value: '3,9 Sekunden',
+          label: 'Beschleunigung',
+          icon: '/assets/cars/icons/speed.png',
+        },
+        {
+          key: 'capacity',
+          value: '4 Personen', // Coupé, 4 Sitzplätze typisch (8 Spl. inkl. Fahrer laut Brief → 4 Sitzplätze real)
+          label: 'Kapazität',
+          icon: '/assets/cars/icons/persons.png',
+        },
+        {
+          key: 'transmission',
+          value: 'Automatik',
+          label: 'Getriebe',
+          icon: '/assets/cars/icons/gear.png',
+        },
+      ],
+      highlights: ['Leistungsstark', 'Sportlich', 'Präzises Handling'],
+    },
+    {
+      id: 4, // anpassen
+      category: 'Sportwagen',
+      name: 'M2',
+      description:
+        'Der BMW M2 ist ein kompaktes Hochleistungs-Coupé mit puristischem Fahrerlebnis und modernster M-Technologie.',
+      price: 550, // anpassen
+      images: [
+        '/assets/cars/m2/m2_1.jpeg',
+        '/assets/cars/m2/m2_2.jpeg',
+      ],
+      performance: [
+        {
+          key: 'horsepower',
+          value: 460, // 338 kW → ~460 PS
+          label: 'Leistung',
+          unit: 'PS',
+          icon: '/assets/cars/icons/horsepower.png',
+        },
+        {
+          key: 'acceleration',
+          value: '4,1 Sekunden',
+          label: 'Beschleunigung',
+          icon: '/assets/cars/icons/speed.png',
+        },
+        {
+          key: 'capacity',
+          value: '4 Personen', // S.1: 4 Sitzplätze
+          label: 'Kapazität',
+          icon: '/assets/cars/icons/persons.png',
+        },
+        {
+          key: 'transmission',
+          value: 'Automatik',
+          label: 'Getriebe',
+          icon: '/assets/cars/icons/gear.png',
+        },
+      ],
+      highlights: ['Leistungsstark', 'Kompakt & Agil', 'Sportliches Design'],
     },
   ];
 
@@ -144,7 +144,7 @@ export class CarFeatures {
   isHorizontalSwipe: boolean | null = null;
   currentIndexes: number[] = [];
 
-  constructor() {}
+  constructor() { }
 
   prevImage(carIndex: number): void {
     const current = this.currentIndexes[carIndex] || 0;

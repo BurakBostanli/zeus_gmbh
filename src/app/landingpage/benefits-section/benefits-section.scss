@@ -30,9 +30,10 @@
 }
 
 .desktop-section {
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  padding: 60px 0px;
+  padding: 60px 20px;
   max-width: 1440px;
   width: 100%;
   @media (max-width: 1024px) {

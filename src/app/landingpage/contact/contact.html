@@ -1,4 +1,4 @@
-<section id="contact" class="contactSection">
+<section id="contact" class="contactSection" aria-label="Kontaktformular">
   <div class="headline-area">
     <h2>Kontaktieren Sie uns</h2>
     <p>Lassen Sie uns über Ihr Projekt sprechen. Wir freuen uns auf Ihre Anfrage</p>
@@ -6,28 +6,35 @@
 
   <div class="formWrapper">
     <div class="contactInfo" appFadeInOnScroll>
-@for (contactInput of contactInput; track $index) {
-  <div class="infoContainer" (click)="executeAction(contactInput.title, contactInput.description[0])">
-    <img [src]="contactInput.imgPath">
-    <div class="inputContainer">
-      <span>{{contactInput.title}}</span>
-      <p>{{contactInput.description}}</p>
+      @for (contactInput of contactInput; track $index) {
+      <div class="infoContainer" (click)="executeAction(contactInput.title, contactInput.description[0])">
+        <img [src]="contactInput.imgPath" [alt]="contactInput.title + ' Icon'">
+        <div class="inputContainer">
+          <span>{{contactInput.title}}</span>
+          <p>{{contactInput.description}}</p>
+        </div>
+      </div>
+      }
+
+      <button (click)="showMap = !showMap" [attr.aria-expanded]="showMap" aria-controls="map-wrapper">
+        {{ showMap ? 'Karte ausblenden' : 'Karte anzeigen' }}
+      </button>
+      <div id="map-wrapper" class="iframe-wrapper" [class.map-open]="showMap == true">
+        <iframe
+          title="Zeus GmbH Standort – Google Maps"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2632.4159224884033!2d11.493766877018912!3d48.71664377131321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e5503b56a2d97%3A0xc77543ef6e4cfd9a!2sZeus%20GmbH%20-%20Autovermietung!5e0!3m2!1sde!2sde!4v1774994885002!5m2!1sde!2sde"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
     </div>
-  </div>
-}
 
-<button (click)="showMap = !showMap">
-  {{ showMap ? 'Karte ausblenden' : 'Karte anzeigen' }}
-</button>
-  <div class="iframe-wrapper" [class.map-open]="showMap == true">
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2632.4159224884033!2d11.493766877018912!3d48.71664377131321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479e5503b56a2d97%3A0xc77543ef6e4cfd9a!2sZeus%20GmbH%20-%20Autovermietung!5e0!3m2!1sde!2sde!4v1774994885002!5m2!1sde!2sde" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <form class="contactForm" novalidate (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm"
+      appFadeInOnScroll fadeClass="fade-in-y" fadeVisibleClass="fade-in-y-visible"
+      aria-label="Kontaktformular">
 
-  </div>
-
-
-    </div>
-    <form class="contactForm" novalidate (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" appFadeInOnScroll appFadeInOnScroll fadeClass="fade-in-y"
-        fadeVisibleClass="fade-in-y-visible">
       <div class="hp-field">
         <label for="company">Firma</label>
         <input id="company" name="company" type="text" autocomplete="off" tabindex="-1" [(ngModel)]="formData.company"
@@ -36,47 +43,48 @@
 
       <div class="formGrid">
         <div class="inputGroup">
+          <label for="name" class="sr-only">Ihr Name</label>
           <input id="name" name="name" type="text" required placeholder="Ihr Name*" [(ngModel)]="formData.name"
             (input)="onInputChange()">
         </div>
 
         <div class="inputGroup">
+          <label for="email" class="sr-only">Ihre E-Mail-Adresse</label>
           <input id="email" name="email" type="email" required placeholder="Ihre E-Mail-Adresse*"
             [(ngModel)]="formData.email" (input)="onInputChange()">
         </div>
 
         <div class="inputGroup">
+          <label for="phone" class="sr-only">Telefonnummer</label>
           <input id="phone" name="phone" required type="tel" placeholder="+49 …*" [(ngModel)]="formData.phone"
             (input)="onInputChange()">
         </div>
 
         <div class="inputGroup">
-          <select id="package" placeholder="fsdf" name="package" [(ngModel)]="formData.package" (change)="onInputChange()">
-                        <option value="">Fahrzeug</option>
-
+          <label for="vehicle" class="sr-only">Fahrzeug auswählen</label>
+          <select id="vehicle" name="vehicle" [(ngModel)]="formData.package" (change)="onInputChange()">
+            <option value="">Fahrzeug</option>
             @for (item of cars; track $index) {
             <option>{{item.name}}</option>
             }
-
-
           </select>
 
-          <select id="package" name="package"  required [(ngModel)]="formData.package" (change)="onInputChange()">
-                        <option value="">Bevorzugte Benachrichtigung</option>
-
+          <label for="notification" class="sr-only">Bevorzugte Benachrichtigung</label>
+          <select id="notification" name="notification" required [(ngModel)]="formData.package" (change)="onInputChange()">
+            <option value="">Bevorzugte Benachrichtigung</option>
             <option>WhatsApp</option>
             <option>E-Mail</option>
             <option>Telefon</option>
-
-
           </select>
         </div>
 
         <div class="inputGroup full">
+          <label for="message" class="sr-only">Ihre Nachricht</label>
           <textarea id="message" name="message" rows="6" required placeholder="Ihre Nachricht"
             [(ngModel)]="formData.message" (input)="onInputChange()"></textarea>
         </div>
       </div>
+
       <div class="consent-container">
         <div class="consentRow">
           <input id="consent" name="consent" type="checkbox" required [(ngModel)]="formData.consent"
@@ -84,11 +92,11 @@
           <label for="consent">Ich stimme der <a [routerLink]="'/privacypolicy'">Datenschutzerklärung</a> zu.*</label>
         </div>
 
-        <div *ngIf="submitSuccess" class="success-message">
+        <div *ngIf="submitSuccess" class="success-message" role="alert">
           Vielen Dank! Deine Nachricht wurde gesendet.
         </div>
 
-        <div *ngIf="submitError" class="error-message">
+        <div *ngIf="submitError" class="error-message" role="alert">
           Es gab einen Fehler. Bitte versuche es später erneut.
         </div>
 
@@ -98,8 +106,5 @@
         </button>
       </div>
     </form>
-
   </div>
-
-
 </section>

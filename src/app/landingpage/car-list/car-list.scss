@@ -6,6 +6,10 @@ section {
   padding: 60px 0px;
   max-width: 1440px;
 
+  @media (min-width: 1024px) {
+    padding: 60px 20px;
+  }
+
   h2 {
     width: 100%;
     justify-content: center;
@@ -98,8 +102,9 @@ section {
       h3 {
         font-size: 24px;
         font-weight: 400;
-                @media (min-width: 1024px) {
-        font-size: 32px;
+
+        @media (min-width: 1024px) {
+          font-size: 32px;
         }
       }
 

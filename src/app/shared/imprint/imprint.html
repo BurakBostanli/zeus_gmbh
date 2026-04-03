@@ -1,17 +1,17 @@
 <app-header></app-header>
-<section class="router-input-container">
-<h2>{{ title }} <div class="hyphen"></div></h2>
+<main>
+  <section class="router-input-container" [attr.aria-label]="title">
+    <h2>{{ title }} <div class="hyphen"></div></h2>
 
-  @for (item of imprint; track $index) {
-    <div class="input-wrapper">
-    <h3>{{item.title}}</h3>
-    <h4>{{item.input}}</h4>
-    @for (inputs of item.description; track $index) {
-      <span [class.strong]="item.title == 'Umsatzsteuer-ID'">{{inputs}}</span>
+    @for (item of imprint; track $index) {
+      <div class="input-wrapper">
+        <h3>{{item.title}}</h3>
+        <h4>{{item.input}}</h4>
+        @for (inputs of item.description; track $index) {
+          <span [class.strong]="item.title == 'Umsatzsteuer-ID'">{{inputs}}</span>
+        }
+      </div>
     }
-    </div>
-
-  }
-
-</section>
+  </section>
+</main>
 <app-footer></app-footer>

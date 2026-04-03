@@ -12,12 +12,13 @@ import { FadeInOnScrollDirective } from '../../directives/fade-in-on-scroll';
 export class CarList implements AfterViewInit, OnDestroy {
   currentIndex: number = 0;
   cars: Car[] = [];
-  
+
   private observer: IntersectionObserver | null = null;
   private animatedItems = new Set<string>();
 
   constructor(public carFeatures: CarFeatures) {
     this.cars = this.carFeatures.cars;
+    this.injectStructuredData();
   }
 
   ngAfterViewInit() {
@@ -30,6 +31,30 @@ export class CarList implements AfterViewInit, OnDestroy {
     }
   }
 
+  private injectStructuredData() {
+    const schema = {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: 'Fahrzeugflotte Zeus GmbH',
+      itemListElement: this.cars.map((car, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: car.name,
+        description: car.description,
+        offers: {
+          '@type': 'Offer',
+          price: car.price,
+          priceCurrency: 'EUR',
+        },
+      })),
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(schema);
+    document.head.appendChild(script);
+  }
+
   private initIntersectionObserver() {
     this.observer = new IntersectionObserver(
       (entries) => {
@@ -39,7 +64,7 @@ export class CarList implements AfterViewInit, OnDestroy {
             const carId = element.dataset['carId'];
             const specKey = element.dataset['specKey'];
             const identifier = `${carId}-${specKey}`;
-            
+
             if (!this.animatedItems.has(identifier) && specKey === 'horsepower') {
               this.animatedItems.add(identifier);
               this.animateNumber(element);
