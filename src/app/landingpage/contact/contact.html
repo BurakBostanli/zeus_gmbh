@@ -16,9 +16,11 @@
       </div>
       }
 
-      <button (click)="showMap = !showMap" [attr.aria-expanded]="showMap" aria-controls="map-wrapper">
-        {{ showMap ? 'Karte ausblenden' : 'Karte anzeigen' }}
-      </button>
+@if (!isDesktop) {
+  <button (click)="showMap = !showMap">
+    {{ showMap ? 'Karte ausblenden' : 'Karte anzeigen' }}
+  </button>
+}
       <div id="map-wrapper" class="iframe-wrapper" [class.map-open]="showMap == true">
         <iframe
           title="Zeus GmbH Standort – Google Maps"

@@ -8,7 +8,6 @@ section {
     gap: 40px;
     display: flex;
     width: 100%;
-    align-items: center;
     justify-content: space-between;
   }
 }
@@ -21,16 +20,12 @@ section {
   @media (min-width: 1024px) {
     padding-top: unset;
     width: 50%;
-    height: 568px;
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
   }
 
   .infoContainer {
     display: flex;
     flex-direction: row;
-    align-items: center;
     gap: 40px;
 
     img {
@@ -151,8 +146,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  justify-content: center;
-  align-items: start;
+  justify-content: start;
 
   span {
     font-size: 14px;

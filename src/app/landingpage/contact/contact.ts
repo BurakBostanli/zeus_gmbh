@@ -18,6 +18,8 @@ export class Contact implements OnInit {
 
   cars: Car[] = [];
   showMap: boolean = false;
+  isDesktop: boolean = false;
+private resizeObserver!: ResizeObserver;
   contactInput: ContactInfo[] = [
     {
       imgPath: 'assets/icons/mailDefault.png',
@@ -80,16 +82,33 @@ export class Contact implements OnInit {
     this.cars = this.carFeatures.cars;
   }
 
-  ngOnInit() {
-    this.titleService.setTitle('Zeus GmbH – Sportwagen mieten in Südbayern | Premium Autovermietung');
-    this.metaService.updateTag({
-      name: 'description',
-      content: 'Jetzt Sportwagen mieten bei Zeus GmbH in Manching, Bayern. BMW M4, Audi RS5 und mehr. Persönliche Beratung & 24/7 Service.',
-    });
+ngOnInit() {
+  this.titleService.setTitle('Zeus GmbH – Sportwagen mieten in Südbayern | Premium Autovermietung');
+  this.metaService.updateTag({
+    name: 'description',
+    content: 'Jetzt Sportwagen mieten bei Zeus GmbH in Manching, Bayern. BMW M4, Audi RS5 und mehr. Persönliche Beratung & 24/7 Service.',
+  });
 
-    this.injectLocalBusinessSchema();
-  }
+  this.injectLocalBusinessSchema();
 
+  this.isDesktop = window.innerWidth >= 1024;
+  this.showMap = this.isDesktop;
+
+  this.resizeObserver = new ResizeObserver(() => {
+    const desktop = window.innerWidth >= 1024;
+    if (desktop !== this.isDesktop) {
+      this.isDesktop = desktop;
+      this.showMap = desktop;
+    }
+  });
+
+  this.resizeObserver.observe(document.body);
+}
+
+ngAfterViewInit() {
+  this.isDesktop = window.innerWidth >= 1024;
+  this.showMap = this.isDesktop;
+}
   private injectLocalBusinessSchema() {
     const schema = {
       '@context': 'https://schema.org',
