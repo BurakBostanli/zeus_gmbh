@@ -41,7 +41,14 @@
   margin-top: 20px;
 }
 
-app-footer {
+main{
   display: flex;
-  background-color: black;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+app-header{
+  display: flex;
+  width: 100%;
 }

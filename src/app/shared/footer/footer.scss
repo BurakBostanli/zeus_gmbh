@@ -26,22 +26,42 @@ footer {
     color: white;
     font-weight: 400;
     font-size: 24px;
+
+    @media (min-width: 1024px) {
+      font-size: 32px;
+    }
   }
 
   p {
     text-align: center;
     color: #a4a4a4;
     font-weight: 200;
+
+    @media (min-width: 1024px) {
+                font-weight: 300;
+
+      font-size: 24px;
+    }
   }
 
   a {
     font-size: 14px;
     font-weight: 200;
     color: #a4a4a4;
+
+    @media (min-width: 1024px) {
+      font-size: 18px;
+          font-weight: 300;
+
+    }
   }
 
   .copyright {
     font-size: 14px;
+
+    @media (min-width: 1024px) {
+      font-size: 18px;
+    }
   }
 }
 
@@ -56,9 +76,12 @@ footer {
     opacity: 0.5;
     width: 32px;
     height: 32px;
+        @media (min-width: 1024px) {
+    width: 40px;
+    height: 40px;    }
   }
 }
 
-svg{
+svg {
   width: 300px;
 }

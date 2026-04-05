@@ -296,9 +296,10 @@ section {
 
 .p-tag {
   padding: 0px 20px;
-
+  text-align: center;
   @media (min-width: 1024px) {
     padding: unset;
+    font-weight: 200;
   }
 }
 

@@ -9,6 +9,19 @@
   box-sizing: border-box;
 }
 
+app-header{
+  display: flex;
+    background-color: black;
+    justify-content: center;
+
+}
+
+app-imprint{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 body {
   background: #ffffff;
 }
