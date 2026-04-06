@@ -26,6 +26,9 @@
 
   span{
     font-weight: 200;
+    @media (min-width: 1024px) {
+      font-weight: 300;
+    }
   }
 }
 

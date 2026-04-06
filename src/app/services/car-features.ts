@@ -7,105 +7,13 @@ import { Car } from '../shared/interface/interface';
 export class CarFeatures {
   cars: Car[] = [
     {
-      id: 2,
-      category: 'Sportwagen',
-      name: 'RS 5 Sportback',
-      description:
-        'Der Audi RS 5 Sportback ist ein leistungsstarker Sportwagen mit exklusiver Ausstattung und modernem Design.',
-      price: 550,
-      images: [
-        '/assets/cars/rs5/rs5_1.jpeg',
-        '/assets/cars/rs5/rs5_2.jpeg',
-        '/assets/cars/rs5/rs5_3.jpeg',
-      ],
-      performance: [
-        {
-          key: 'horsepower',
-          value: 450,
-          label: 'Leistung',
-          unit: 'PS',
-          icon: '/assets/cars/icons/horsepower.png',
-        },
-        {
-          key: 'acceleration',
-          value: '3,9 Sekunden',
-          label: 'Beschleunigung',
-          icon: '/assets/cars/icons/speed.png',
-        },
-        {
-          key: 'capacity',
-          value: '5 Personen',
-          label: 'Kapazität',
-          icon: '/assets/cars/icons/persons.png',
-        },
-        {
-          key: 'transmission',
-          value: 'Automatik',
-          label: 'Getriebe',
-          icon: '/assets/cars/icons/gear.png',
-        },
-      ],
-      highlights: ['Leistungsstark', 'Sportlich', 'Luxusausstattung'],
-    }, {
-      id: 3, // anpassen nach deiner Liste
-      category: 'Sportwagen',
-      name: 'M4 Competition',
-      description:
-        'Der BMW M4 Competition ist ein hochleistungsstarkes Coupé mit sportlichem Charakter und modernster Technik.',
-      price: 550, // anpassen
-      images: [
-        '/assets/cars/m4/m4_1.jpeg',
-        '/assets/cars/m4/m4_2.jpeg',
-        '/assets/cars/m4/m4_3.jpeg',
-        '/assets/cars/m4/m4_4.jpeg',
-
-        '/assets/cars/m4/m4_5.jpeg',
-
-        '/assets/cars/m4/m4_6.jpeg',
-
-        '/assets/cars/m4/m4_7.jpeg',
-
-      ],
-      performance: [
-        {
-          key: 'horsepower',
-          value: 510, // 375 kW → ~510 PS
-          label: 'Leistung',
-          unit: 'PS',
-          icon: '/assets/cars/icons/horsepower.png',
-        },
-        {
-          key: 'acceleration',
-          value: '3,9 Sekunden',
-          label: 'Beschleunigung',
-          icon: '/assets/cars/icons/speed.png',
-        },
-        {
-          key: 'capacity',
-          value: '4 Personen', // Coupé, 4 Sitzplätze typisch (8 Spl. inkl. Fahrer laut Brief → 4 Sitzplätze real)
-          label: 'Kapazität',
-          icon: '/assets/cars/icons/persons.png',
-        },
-        {
-          key: 'transmission',
-          value: 'Automatik',
-          label: 'Getriebe',
-          icon: '/assets/cars/icons/gear.png',
-        },
-      ],
-      highlights: ['Leistungsstark', 'Sportlich', 'Präzises Handling'],
-    },
-    {
-      id: 4, // anpassen
+      id: 1, // anpassen
       category: 'Sportwagen',
       name: 'M2',
       description:
         'Der BMW M2 ist ein kompaktes Hochleistungs-Coupé mit puristischem Fahrerlebnis und modernster M-Technologie.',
       price: 550, // anpassen
-      images: [
-        '/assets/cars/m2/m2_1.jpeg',
-        '/assets/cars/m2/m2_2.jpeg',
-      ],
+      images: ['/assets/cars/m2/m2_1.jpeg', '/assets/cars/m2/m2_2.jpeg'],
       performance: [
         {
           key: 'horsepower',
@@ -135,6 +43,50 @@ export class CarFeatures {
       ],
       highlights: ['Leistungsstark', 'Kompakt & Agil', 'Sportliches Design'],
     },
+
+    {
+      id: 2,
+      category: 'Sportwagen',
+      name: 'RS 5 Sportback',
+      description:
+        'Der Audi RS 5 Sportback ist ein leistungsstarker Sportwagen mit exklusiver Ausstattung und modernem Design.',
+      price: 550,
+      images: [
+        '/assets/cars/rs5/rs5_1.jpg',
+        '/assets/cars/rs5/rs5_2.jpg',
+        '/assets/cars/rs5/rs5_3.jpg',
+        '/assets/cars/rs5/rs5_4.jpeg',
+        '/assets/cars/rs5/rs5_5.jpeg',
+      ],
+      performance: [
+        {
+          key: 'horsepower',
+          value: 450,
+          label: 'Leistung',
+          unit: 'PS',
+          icon: '/assets/cars/icons/horsepower.png',
+        },
+        {
+          key: 'acceleration',
+          value: '3,9 Sekunden',
+          label: 'Beschleunigung',
+          icon: '/assets/cars/icons/speed.png',
+        },
+        {
+          key: 'capacity',
+          value: '5 Personen',
+          label: 'Kapazität',
+          icon: '/assets/cars/icons/persons.png',
+        },
+        {
+          key: 'transmission',
+          value: 'Automatik',
+          label: 'Getriebe',
+          icon: '/assets/cars/icons/gear.png',
+        },
+      ],
+      highlights: ['Leistungsstark', 'Sportlich', 'Luxusausstattung'],
+    },
   ];
 
   selectedImage: string | null = null;
@@ -144,7 +96,7 @@ export class CarFeatures {
   isHorizontalSwipe: boolean | null = null;
   currentIndexes: number[] = [];
 
-  constructor() { }
+  constructor() {}
 
   prevImage(carIndex: number): void {
     const current = this.currentIndexes[carIndex] || 0;

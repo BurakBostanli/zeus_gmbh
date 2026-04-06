@@ -29,17 +29,17 @@ private resizeObserver!: ResizeObserver;
     {
       imgPath: 'assets/icons/phoneDefault.png',
       title: 'Telefon',
-      description: ['+49 (0) 170 8297053'],
+      description: ['+49 170 8297053'],
     },
     {
       imgPath: 'assets/icons/whatsappDefault.png',
       title: 'WhatsApp',
-      description: ['Hier klicken'],
+      description: ['+49 170 8297053'],
     },
     {
       imgPath: '/assets/icons/locationDefault.png',
       title: 'Standort',
-      description: ['Ingolstadt'],
+      description: ['Ringstraße 12', ' ' + 'Manching'],
     },
   ];
 

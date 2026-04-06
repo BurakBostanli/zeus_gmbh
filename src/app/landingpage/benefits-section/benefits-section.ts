@@ -15,7 +15,7 @@ export class BenefitsSection implements AfterViewInit {
       description:
         'Rundum geschützt unterwegs – ohne Selbstbeteiligung und versteckte Kosten.',
       iconUrl: '/assets/icons/insurance.png',
-      imgPath: '/assets/cars/insurance/img1.jpeg'
+      imgPath: '/assets/cars/insurance/img1.jpg'
     },
     {
       title: '24/7 Verfügbarkeit',
