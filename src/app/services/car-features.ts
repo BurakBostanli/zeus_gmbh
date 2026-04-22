@@ -13,7 +13,14 @@ export class CarFeatures {
       description:
         'Der BMW M2 ist ein kompaktes Hochleistungs-Coupé mit puristischem Fahrerlebnis und modernster M-Technologie.',
       price: 550, // anpassen
-      images: ['/assets/cars/m2/m2_1.jpeg', '/assets/cars/m2/m2_2.jpeg'],
+      images: [
+        '/assets/cars/m2/m2_1.jpeg',
+        '/assets/cars/m2/m2_2.jpeg',
+        '/assets/cars/m2/m2_3.jpeg',
+        '/assets/cars/m2/m2_4.jpeg',
+        '/assets/cars/m2/m2_5.jpeg',
+
+      ],
       performance: [
         {
           key: 'horsepower',
