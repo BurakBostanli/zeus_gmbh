@@ -87,7 +87,43 @@ export class CarFeatures {
       ],
       highlights: ['Leistungsstark', 'Sportlich', 'Luxusausstattung'],
     },
-  ];
+    {
+      id: 3,
+      category: 'Sportwagen',
+      name: 'RS3',
+      description:
+        'Der Audi RS3 ist ein kompakter Hochleistungs-Sportler mit aggressivem Design und einem kraftvollen Fünfzylinder-Motor.',
+      price: 550,
+      images: ['/assets/cars/rs3/rs3_1.jpeg', '/assets/cars/rs3/rs3_2.jpeg'],
+      performance: [
+        {
+          key: 'horsepower',
+          value: 400,
+          label: 'Leistung',
+          unit: 'PS',
+          icon: '/assets/cars/icons/horsepower.png',
+        },
+        {
+          key: 'acceleration',
+          value: '3,8 Sekunden',
+          label: 'Beschleunigung',
+          icon: '/assets/cars/icons/speed.png',
+        },
+        {
+          key: 'capacity',
+          value: '5 Personen',
+          label: 'Kapazität',
+          icon: '/assets/cars/icons/persons.png',
+        },
+        {
+          key: 'transmission',
+          value: 'Automatik',
+          label: 'Getriebe',
+          icon: '/assets/cars/icons/gear.png',
+        },
+      ],
+      highlights: ['Fünfzylinder-Motor', 'Allradantrieb', 'Sportliches Design'],
+    },];
 
   selectedImage: string | null = null;
   selectedIndex = 0;
@@ -96,7 +132,7 @@ export class CarFeatures {
   isHorizontalSwipe: boolean | null = null;
   currentIndexes: number[] = [];
 
-  constructor() {}
+  constructor() { }
 
   prevImage(carIndex: number): void {
     const current = this.currentIndexes[carIndex] || 0;
