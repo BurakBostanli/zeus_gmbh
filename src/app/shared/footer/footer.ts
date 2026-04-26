@@ -32,11 +32,11 @@ export class Footer {
     {
       title: 'Angaben gemäß § 5 TMG',
       input: 'Zeus GmbH',
-      description: ['Ringstraße 12', '85077 Manching'],
+      description: ['Keplerstr. 1', '85057 Ingolstadt'],
     },
     {
       title: 'Vertreten durch',
-      description: ['Geschäftsführer: Mehmet Ali Onac'],
+      description: ['Geschäftsführer: Mehmet Ali Onac, Daniel Isanov'],
     },
     {
       title: 'Kontakt',
@@ -54,7 +54,7 @@ export class Footer {
       title: 'Umsatzsteuer-ID',
       input:
         'Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:',
-      description: ['[wird nachgereicht]'],
+      description: ['DE 356 778 418'],
     },
     {
       title: 'Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV',
@@ -101,9 +101,9 @@ export class Footer {
       input: 'Verantwortlicher',
       description: [
         'Zeus GmbH',
-        'Ringstraße 12',
-        '85077 Manching',
-        'Geschäftsführer: Mehmet Ali Onac',
+        'Keplerstr. 1',
+        '85057 Ingolstadt',
+        'Geschäftsführer: Mehmet Ali Onac, Daniel Isanov',
         'E-Mail: Info@zeus-auto.de',
         'Tel: +49 170 8297053',
       ],
@@ -158,7 +158,7 @@ export class Footer {
     {
       title: 'Geltungsbereich',
       description: [
-        'Diese Allgemeinen Geschäftsbedingungen gelten für alle Mietverträge zwischen der Zeus GmbH, Ringstraße 12 85077 Manching und dem Mieter.',
+        'Diese Allgemeinen Geschäftsbedingungen gelten für alle Mietverträge zwischen der Zeus GmbH, Keplerstr. 1 85057 Ingolstadt und dem Mieter.',
       ],
     },
     {

@@ -7,9 +7,9 @@
   <div class="formWrapper">
     <div class="contactInfo" appFadeInOnScroll>
       @for (contactInput of contactInput; track $index) {
-      <div class="infoContainer" (click)="executeAction(contactInput.title, contactInput.description[0])">
-        <img [src]="contactInput.imgPath" [alt]="contactInput.title + ' Icon'">
-        <div class="inputContainer">
+      <div class="infoContainer" >
+        <img (click)="executeAction(contactInput.title, contactInput.description[0])" [src]="contactInput.imgPath" [alt]="contactInput.title + ' Icon'">
+        <div (click)="executeAction(contactInput.title, contactInput.description[0])" class="inputContainer">
           <span>{{contactInput.title}}</span>
           <p>{{contactInput.description}}</p>
         </div>
@@ -32,7 +32,7 @@
         </iframe>
       </div>
     </div>
-
+<!-- 
     <form class="contactForm" novalidate (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm"
       appFadeInOnScroll fadeClass="fade-in-y" fadeVisibleClass="fade-in-y-visible"
       aria-label="Kontaktformular">
@@ -107,6 +107,6 @@
           {{ isSubmitting ? 'Wird gesendet...' : 'Nachricht Senden' }}
         </button>
       </div>
-    </form>
+    </form> -->
   </div>
 </section>

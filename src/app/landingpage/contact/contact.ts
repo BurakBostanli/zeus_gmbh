@@ -17,7 +17,7 @@ import { FadeInOnScrollDirective } from '../../directives/fade-in-on-scroll';
 export class Contact implements OnInit {
 
   cars: Car[] = [];
-  showMap: boolean = false;
+  showMap: boolean = true;
   isDesktop: boolean = false;
 private resizeObserver!: ResizeObserver;
   contactInput: ContactInfo[] = [
@@ -39,7 +39,7 @@ private resizeObserver!: ResizeObserver;
     {
       imgPath: '/assets/icons/locationDefault.png',
       title: 'Standort',
-      description: ['Ringstraße 12', ' ' + 'Manching'],
+      description: ['Keplerstr. 1', ' ' + '85057 Ingolstadt'],
     },
   ];
 
@@ -119,9 +119,9 @@ ngAfterViewInit() {
       email: 'info@auto-zeus.de',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Ringstr. 12',
-        addressLocality: 'Manching',
-        postalCode: '85077',
+        streetAddress: 'Keplerstr 1',
+        addressLocality: 'Ingolstadt',
+        postalCode: '85057',
         addressCountry: 'DE',
       },
       geo: {
